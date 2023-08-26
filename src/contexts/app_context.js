@@ -1,8 +1,12 @@
 import { createContext, useContext, useState } from "react";
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
-const AppContextProvider = ({ children }) => {
+export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(2);
   return <AppContext.Provider value={user}>{children}</AppContext.Provider>;
+};
+
+export const useAuth = () => {
+  return useContext(AppContext);
 };
