@@ -1,9 +1,19 @@
-import React from 'react'
+import React , {useState} from 'react'
 
 function Posts() {
+  const [posts, setPosts] = useState(['the','overall','posts','page'])
   return (
-    <div>
+    <div className='posts'>
       <h1>The overall posts page</h1>
+      <h2>We will display the last so many posts here</h2>
+      <ul>
+        {
+          posts.map((item)=>{
+            return <li>{item}</li>
+          })
+        }
+      </ul>
+      
     </div>
   )
 }
