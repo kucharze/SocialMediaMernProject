@@ -5,9 +5,10 @@ import { useState } from "react";
 import Auth from "./pages/Auth/Auth";
 import Posts from "./pages/Posts/Posts";
 import UserPage from "./pages/UserPage/UserPage";
+import { useAuth } from "./contexts/app_context";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
   return (
     <div className="App">
       This is our app
