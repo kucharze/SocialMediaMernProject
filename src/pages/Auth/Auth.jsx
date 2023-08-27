@@ -11,7 +11,7 @@ function Auth() {
   const handleSubmit = (e) =>{
     e.preventDefault()
     console.log("Submitting")
-    postData({email, password,confirm})
+    postData({screenName, email, password,confirm})
   }
   return (
     <div>

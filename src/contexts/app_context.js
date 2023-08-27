@@ -7,8 +7,9 @@ export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);
 
-  const postData = () => {
+  const postData = (data) => {
     console.log("Posting data");
+    console.log(data);
   };
   return (
     <AppContext.Provider value={{ user, posts, postData }}>
