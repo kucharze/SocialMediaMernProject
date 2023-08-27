@@ -8,7 +8,7 @@ function UserPage(props) {
     const {user} = useAuth()
     const [userName,setUserName] = useState('user')
     const [create,setCreate] = useState(false)
-      const [posts, setPosts] = useState(['the','overall','posts','for','this','user'])
+    const [posts, setPosts] = useState(['the','overall','posts','for','this','user'])
 
   return (
     <div>
