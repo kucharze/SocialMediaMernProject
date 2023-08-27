@@ -11,7 +11,7 @@ function App() {
   const { user } = useAuth();
   return (
     <div className="App">
-      This is our app
+      <h1>K</h1>
       {user ? (
         <Routes>
           <Route path="/posts" element={<Posts />} />
