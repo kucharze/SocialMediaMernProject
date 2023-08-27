@@ -5,7 +5,7 @@ const Users = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, requried: true, lowercase: true },
     password: { type: String, requried: true, minLength: 6 },
-    posts: { type: Object },
+    posts: { type: mongoose.Schema.Types.ObjectId },
   },
   {
     timestamps: true,
