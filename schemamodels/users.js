@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Users = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    email: { type: String, requried: true, lowercase: true },
+    email: { type: String, requried: true, lowercase: true, unique: true },
     password: { type: String, requried: true, minLength: 6 },
     posts: { type: mongoose.Schema.Types.ObjectId },
   },
