@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 
 const cors = require("cors");
 const path = require("path");
@@ -6,6 +7,16 @@ const favicon = require("serve-favicon");
 const logger = require("morgan");
 
 const app = express();
+
+const mongoose = require("mongoose");
+
+mongoose.connect(process.env.DATABASE_URL);
+
+const db = mongoose.connection;
+
+db.on("connected", function () {
+  console.log(`Connected to ${db.name} at ${db.host}:${db.port}`);
+});
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -18,10 +29,7 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 // Put API routes here, before the "catch all" route
-app.post("/", (req, res) => {
-  console.log("Recieved a post request");
-  res.json(req.body);
-});
+app.post("/user", require("./routes/api/users"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
@@ -35,5 +43,5 @@ app.get("/*", function (req, res) {
 const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port number ${port}`);
 });
