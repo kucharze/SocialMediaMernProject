@@ -10,8 +10,11 @@ router.post("/", async (req, res) => {
   // res.json("We are ok");
 
   try {
+    console.log("Attempting to save a user");
     const user = await User.create(req.body);
+    res.json(createJWT(user));
   } catch (error) {
+    console.log("error", error);
     res.status(400).json(error);
   }
 });
@@ -19,6 +22,7 @@ router.post("/", async (req, res) => {
 module.exports = router;
 
 function createJWT(user) {
+  console.log("Inside createjwt");
   return jwt.sign(
     //datapayload
     { user },

@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+
+SALT_ROUNDS = 6;
 
 const Users = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    screenName: { type: String, required: true },
     email: { type: String, requried: true, lowercase: true, unique: true },
     password: { type: String, requried: true, minLength: 4 },
     posts: { type: mongoose.Schema.Types.ObjectId },
