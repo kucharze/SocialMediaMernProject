@@ -1,4 +1,5 @@
 import React , {useState} from 'react'
+import Post from '../../components/Post'
 
 function Posts() {
   const [posts, setPosts] = useState(['the','overall','posts','page'])
@@ -10,7 +11,7 @@ function Posts() {
         {
           posts.map((item)=>{
             return <li><div className='post'>
-              {item}
+              <Post post={item}/>
               </div></li>
           })
         }
