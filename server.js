@@ -28,8 +28,14 @@ app.use(cors());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
+app.use("/*", (req, res, next) => {
+  console.log("new data has come in: ", req.body);
+
+  next();
+});
+
 // Put API routes here, before the "catch all" route
-app.post("/user", require("./routes/api/users"));
+app.post("/", require("./routes/api/users"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
