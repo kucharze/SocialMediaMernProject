@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
 // const usersCtrl = require("../../controllers/api/users");
 
 const User = require("../../schemamodels/users");
@@ -16,3 +17,12 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+
+function createJWT(user) {
+  return jwt.sign(
+    //datapayload
+    { user },
+    process.env.SECRET,
+    { expiresIn: "24h" }
+  );
+}
