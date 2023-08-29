@@ -35,7 +35,7 @@ app.use("/*", (req, res, next) => {
 });
 
 // Put API routes here, before the "catch all" route
-app.post("/", require("./routes/api/users"));
+app.use("/users", require("./routes/api/users"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const AppContext = createContext();
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://localhost:3001/users";
 
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -20,7 +20,7 @@ export const AppContextProvider = ({ children }) => {
         },
       });
 
-      console.log(res);
+      console.log("The response", res);
     } catch (error) {
       console.log("An error occurred: ", error);
     }
