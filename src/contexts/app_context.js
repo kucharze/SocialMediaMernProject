@@ -25,6 +25,7 @@ export const AppContextProvider = ({ children }) => {
       getUser();
     } catch (error) {
       console.log("An error occurred: ", error);
+      return "Sign in failed";
     }
   };
 
@@ -38,8 +39,11 @@ export const AppContextProvider = ({ children }) => {
         },
       });
       console.log(res);
+      localStorage.setItem("token", res.data);
+      getUser();
     } catch (error) {
       console.log("An error occurred: ", error);
+      return "Login failed";
     }
   };
 
