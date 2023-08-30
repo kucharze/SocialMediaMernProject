@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
+import { useAuth } from '../contexts/app_context'
 
 function LoginForm() {
+    const {postLogin} = useAuth()
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log("Logining in")
+        console.log("Logining in",{email,password})
+        postLogin({email,password})
     }
   return (
     <div>

@@ -32,6 +32,12 @@ export const AppContextProvider = ({ children }) => {
     console.log("Post login data", data);
 
     try {
+      const res = await axios.post(`${BASE_URL}/login`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(res);
     } catch (error) {
       console.log("An error occurred: ", error);
     }
