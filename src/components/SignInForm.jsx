@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import { useAuth } from '../contexts/app_context'
 
 function SignInForm() {
-      const {postData} = useAuth()
-  const [screenName, setScreenName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirm, setConfirm] = useState('')
+    const {postData} = useAuth()
+    const [screenName, setScreenName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirm, setConfirm] = useState('')
 
     const handleSubmit = (e) =>{
         e.preventDefault()

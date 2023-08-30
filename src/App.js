@@ -14,7 +14,7 @@ function App() {
       <h1>K</h1>
       {user ? (
         <Routes>
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/" element={<Posts />} />
           <Route path="/User/:id" element={<UserPage />} />
         </Routes>
       ) : (
