@@ -22,6 +22,7 @@ export const AppContextProvider = ({ children }) => {
 
       console.log("The response", res);
       localStorage.setItem("token", res.data);
+      setUser(getUser());
     } catch (error) {
       console.log("An error occurred: ", error);
     }
