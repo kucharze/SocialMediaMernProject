@@ -28,6 +28,15 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const postLogin = async (data) => {
+    console.log("Post login data", data);
+
+    try {
+    } catch (error) {
+      console.log("An error occurred: ", error);
+    }
+  };
+
   //Grab token from local storage
   function getToken() {
     // getItem returns null if there's no string
@@ -53,7 +62,7 @@ export const AppContextProvider = ({ children }) => {
     setUser(item);
   }
   return (
-    <AppContext.Provider value={{ user, posts, postData }}>
+    <AppContext.Provider value={{ user, posts, postData, postLogin }}>
       {children}
     </AppContext.Provider>
   );
