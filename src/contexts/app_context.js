@@ -22,7 +22,7 @@ export const AppContextProvider = ({ children }) => {
 
       console.log("The response", res);
       localStorage.setItem("token", res.data);
-      setUser(getUser());
+      getUser();
     } catch (error) {
       console.log("An error occurred: ", error);
     }
@@ -48,7 +48,9 @@ export const AppContextProvider = ({ children }) => {
   function getUser() {
     const token = getToken();
     // If there's a token, return the user in the payload, otherwise return null
-    return token ? JSON.parse(atob(token.split(".")[1])).user : null;
+    const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
+
+    setUser(item);
   }
   return (
     <AppContext.Provider value={{ user, posts, postData }}>
