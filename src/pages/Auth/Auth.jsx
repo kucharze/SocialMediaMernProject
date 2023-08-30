@@ -1,28 +1,14 @@
 import React, {useState} from 'react'
 import { useAuth } from '../../contexts/app_context'
+import SignInForm from '../../components/SignInForm'
+import LoginForm from '../../components/LoginForm'
 
 function Auth() {
-  const {postData} = useAuth()
-  const [screenName, setScreenName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirm, setConfirm] = useState('')
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log("Submitting")
-    postData({screenName, email, password,confirm})
-  }
   return (
     <div>
-      <h1>Authentication page</h1>
-      <form onSubmit={handleSubmit}>
-        <input name='screenname' type='text' onChange={(e)=>setScreenName(e.target.value)} placeholder='Screen Name'/> <br/>
-        <input name='email' type='email' onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/> <br/>
-        <input name='password' type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='password'/><br/>
-        <input name='confirm' type='password' onChange={(e)=>setConfirm(e.target.value)} placeholder='password'/><br/>
-        <input type='submit'/>
-      </form>
+      <SignInForm/>
+      <LoginForm/>
     </div>
   )
 }
