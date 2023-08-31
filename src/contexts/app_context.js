@@ -33,7 +33,7 @@ export const AppContextProvider = ({ children }) => {
     console.log("Post login data", data);
 
     try {
-      const res = await axios.post(`${BASE_URL}/login`, data, {
+      const res = await axios.post(`${BASE_URL}/findUser`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,6 +44,17 @@ export const AppContextProvider = ({ children }) => {
     } catch (error) {
       console.log("An error occurred: ", error);
       return "Login failed";
+    }
+  };
+
+  const searchUser = async (id) => {
+    try {
+      const res = await axios.get(`${BASE_URL}/findUser/${id}`);
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      console.log("Error searching for user: ", error);
+      return "Error";
     }
   };
 
@@ -64,14 +75,6 @@ export const AppContextProvider = ({ children }) => {
     return token;
   }
 
-  function setUpUser() {
-    const token = getToken();
-    const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
-    console.log(item);
-
-    return item;
-  }
-
   function getUser() {
     // If there's a token, return the user in the payload, otherwise return null
     const token = getToken();
@@ -86,7 +89,7 @@ export const AppContextProvider = ({ children }) => {
   };
   return (
     <AppContext.Provider
-      value={{ getUser, user, logout, posts, postData, postLogin }}
+      value={{ getUser, user, logout, posts, postData, postLogin, searchUser }}
     >
       {children}
     </AppContext.Provider>
