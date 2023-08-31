@@ -24,3 +24,7 @@ input {
   align-items: center;
   flex-direction: column;
 }
+
+.postDisplay li {
+  margin: 10px;
+}
