@@ -10,6 +10,10 @@
 
 ### Page to authenticate a user
 
+Used for login and signup features
+
 ### Page to display last so many posts shown
 
 ### A User page that displays a user based on their Profile
+
+This page will options to edit, delete, and create a post if the page belongs to the logged in user
