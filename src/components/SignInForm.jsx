@@ -11,7 +11,7 @@ function SignInForm() {
     const handleSubmit = (e) =>{
         e.preventDefault()
         console.log("Submitting")
-        postData({screenName, email, password,confirm})
+        postData({screenName, email, password,confirm, posts: []})
     }
   return (
     <div>
