@@ -1,11 +1,12 @@
 .Post {
   border: solid black;
   background-color: gray;
+  width: 800px;
 }
 
 button {
-  height: 100px;
-  width: 150px;
-  font-size: 20px;
+  height: 80px;
+  width: 100px;
+  font-size: 15px;
   margin: 10px;
 }

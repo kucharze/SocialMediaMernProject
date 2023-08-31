@@ -18,3 +18,9 @@ input {
 .navbar a {
   color: white;
 }
+
+.postDisplay {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
