@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import CreatePost from '../../components/CreatePost'
 import { useAuth } from '../../contexts/app_context'
+import Post from '../../components/Post/Post'
 
 function UserPage(props) {
     const id = useParams().id
@@ -27,9 +28,9 @@ function UserPage(props) {
      
       <ul>
         {
-          posts.map((item)=>{
+          posts.map((item,i)=>{
             return <li><div className='post'>
-              {item}
+              <Post post={item}/>
               </div></li>
           })
         }
