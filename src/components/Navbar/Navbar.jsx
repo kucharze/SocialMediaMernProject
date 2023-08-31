@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/app_context'
 
 function Navbar() {
-  const {user} = useAuth()
+  const {user,logout} = useAuth()
   return (
     <div className='navbar'>
       <Link to={`/User/${user._id}`}>{user.screenName}'s page</Link>
       &nbsp; | &nbsp;
       <Link to={`/`}>Main posts thread</Link>
       &nbsp; | &nbsp;
-      <Link to={`/`}>Logout Not currently working</Link>
+      <Link to={``} onClick={()=>logout()}>Logout</Link>
     </div>
   )
 }

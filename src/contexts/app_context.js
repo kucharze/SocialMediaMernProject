@@ -6,7 +6,7 @@ export const AppContext = createContext();
 const BASE_URL = "http://localhost:3001/users";
 
 export const AppContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const [posts, setPosts] = useState(null);
 
   const postData = async (data) => {
@@ -64,15 +64,30 @@ export const AppContextProvider = ({ children }) => {
     return token;
   }
 
-  function getUser() {
+  function setUpUser() {
     const token = getToken();
-    // If there's a token, return the user in the payload, otherwise return null
     const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
+    console.log(item);
 
+    return item;
+  }
+
+  function getUser() {
+    // If there's a token, return the user in the payload, otherwise return null
+    const token = getToken();
+    const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
+    //console.log(item);
     setUser(item);
   }
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
   return (
-    <AppContext.Provider value={{ user, posts, postData, postLogin }}>
+    <AppContext.Provider
+      value={{ getUser, user, logout, posts, postData, postLogin }}
+    >
       {children}
     </AppContext.Provider>
   );
