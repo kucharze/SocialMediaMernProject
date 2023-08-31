@@ -11,12 +11,15 @@ function UserPage(props) {
     const [create,setCreate] = useState(false)
     const [posts, setPosts] = useState(['the','overall','posts','for','this','user'])
 
+    useEffect(()=>{
+      console.log("This will bring in data for the current user page we are on")
+    },[])
   return (
     <div>
       <h1>The user profile for a particular user</h1>
-      <h2>The id: {id}</h2>
+      {/* <h2>The id: {id}</h2> */}
       {
-        (user == 'Zack') && 
+        (user._id == id) && 
         <div>
         <button onClick={()=>{setCreate(!create)}}>Create a new post</button>
         {
@@ -29,8 +32,8 @@ function UserPage(props) {
       <ul>
         {
           posts.map((item,i)=>{
-            return <li><div className='post'>
-              <Post post={item}/>
+            return <li key={i}><div className='post'>
+              <Post user={user} post={item} isUser={user._id == id}/>
               </div></li>
           })
         }
