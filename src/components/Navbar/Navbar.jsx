@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/app_context'
 
 function Navbar() {
+  const {user} = useAuth()
   return (
     <div className='navbar'>
-      <Link to={`/User/:id`}>Your page</Link>
+      <Link to={`/User/:id`}>{user.screenName}'s page</Link>
       &nbsp; | &nbsp;
       <Link to={`/`}>Main posts thread</Link>
       &nbsp; | &nbsp;
