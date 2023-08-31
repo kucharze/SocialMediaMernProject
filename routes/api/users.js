@@ -7,8 +7,7 @@ const bcrypt = require("bcrypt");
 const User = require("../../schemamodels/users");
 
 router.post("/", async (req, res) => {
-  console.log("Found a route for a post");
-  // res.json("We are ok");
+  // console.log("Found a route for a post");
 
   try {
     console.log("Attempting to save a user");
@@ -46,6 +45,26 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     console.log("error", error);
     res.status(400).json(error.message);
+  }
+});
+
+router.get("/findUser/:id", async (req, res) => {
+  console.log("Searching for a user using ", req.params.id);
+  let id = req.params.id;
+
+  try {
+    const user = await User.findById(id);
+    console.log(user);
+
+    if (user) {
+      console.log("Good user");
+      res.status(200).json(user);
+    } else {
+      console.log("bad user");
+      res.status(400).json("No user found");
+    }
+  } catch (error) {
+    res.status(400).json({ msg: "Error searching for user" });
   }
 });
 
