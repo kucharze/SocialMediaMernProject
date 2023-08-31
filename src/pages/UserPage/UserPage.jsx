@@ -29,7 +29,7 @@ function UserPage(props) {
         
       }
      
-      <ul>
+      <ul className='postDisplay'>
         {
           posts.map((item,i)=>{
             return <li key={i}><div className='post'>
