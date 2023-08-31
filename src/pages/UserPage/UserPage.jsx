@@ -9,20 +9,28 @@ function UserPage(props) {
     const {user, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
     const [create,setCreate] = useState(false)
-    const [posts, setPosts] = useState(['the','overall','posts','for','this','user'])
+    const [posts, setPosts] = useState(null)
 
     const grabUser = async() =>{
       console.log("Bring in data for the current user page we are on")
       const userdata = await searchUser(id)
       console.log("userdata",userdata)
       setUserName(userdata.screenName);
+      if(userdata.posts.length === 0){
+        setPosts(["No data"])
+      }
+      setPosts(userdata.posts)
+      console.log("Current posts",posts)
     }
 
     useEffect(()=>{
+      console.log("Current posts",posts)
       if(user._id !== id){
+        console.log("Grabbing from server")
         grabUser()
       }
       else{
+        console.log("Grabbing from User var")
         setUserName(user.screenName)
       }
     },[])
@@ -43,11 +51,12 @@ function UserPage(props) {
      
       <ul className='postDisplay'>
         {
-          posts.map((item,i)=>{
+          (posts && posts.length>0) ? posts.map((item,i)=>{
             return <li key={i}><div className='post'>
               <Post user={user} post={item} isUser={user._id === id}/>
               </div></li>
-          })
+          }) : 
+          <h3>This user currently has not made any posts</h3>
         }
       </ul>
     </div>
