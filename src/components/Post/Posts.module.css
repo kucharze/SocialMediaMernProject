@@ -1,0 +1,11 @@
+.Post {
+  border: solid black;
+  background-color: gray;
+}
+
+button {
+  height: 100px;
+  width: 150px;
+  font-size: 20px;
+  margin: 10px;
+}
