@@ -6,7 +6,7 @@ function Navbar() {
   const {user} = useAuth()
   return (
     <div className='navbar'>
-      <Link to={`/User/:id`}>{user.screenName}'s page</Link>
+      <Link to={`/User/${user._id}`}>{user.screenName}'s page</Link>
       &nbsp; | &nbsp;
       <Link to={`/`}>Main posts thread</Link>
       &nbsp; | &nbsp;
