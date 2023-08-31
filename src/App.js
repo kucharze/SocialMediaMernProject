@@ -6,6 +6,7 @@ import Auth from "./pages/Auth/Auth";
 import Posts from "./pages/Posts/Posts";
 import UserPage from "./pages/UserPage/UserPage";
 import { useAuth } from "./contexts/app_context";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const { user } = useAuth();
@@ -13,10 +14,13 @@ function App() {
     <div className="App">
       <h1>K</h1>
       {user ? (
-        <Routes>
-          <Route path="/" element={<Posts />} />
-          <Route path="/User/:id" element={<UserPage />} />
-        </Routes>
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Posts />} />
+            <Route path="/User/:id" element={<UserPage />} />
+          </Routes>
+        </>
       ) : (
         <Auth />
       )}
