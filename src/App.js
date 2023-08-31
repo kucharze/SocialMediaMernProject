@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Auth from "./pages/Auth/Auth";
 import Posts from "./pages/Posts/Posts";
 import UserPage from "./pages/UserPage/UserPage";
@@ -9,7 +9,17 @@ import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  const { user } = useAuth();
+  const { user, getUser } = useAuth();
+
+  const setUpUser = async () => {
+    await getUser();
+    console.log("appjs user", user);
+  };
+
+  useEffect(() => {
+    setUpUser();
+  }, []);
+
   return (
     <div className="App">
       <h1>K</h1>
