@@ -1,6 +1,7 @@
 import React , {useState, useEffect} from 'react'
 import Post from '../../components/Post/Post'
 import { useAuth } from '../../contexts/app_context'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
