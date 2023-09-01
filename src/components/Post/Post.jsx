@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 import styles from './Posts.module.css'
 
 function Post({user, post, isUser}) {
-  console.log('Post user',user)
+  //console.log('Post user',user)
   return (
     <div className={styles.Post}>
-      <h1>A single post</h1>
-      <h2>{user && user.screenName}</h2>
+      <h1>{user && user.screenName}</h1>
       <p>The data as part of the post: {post.post}</p>
       {
         isUser && <div className='editing'>

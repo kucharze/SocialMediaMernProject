@@ -20,7 +20,7 @@ function Posts() {
   };
 
   useEffect(()=>{
-    console.log("loading posts",loadPosts)
+    //console.log("loading posts",loadPosts)
     loadPosts()
   },[])
   return (
@@ -29,11 +29,11 @@ function Posts() {
       <h2>We will display the last so many posts here</h2>
       <ul className='postDisplay'>
         {
-          posts && posts.map((item,i)=>{
+          posts ? posts.map((item,i)=>{
             return <li key={i}><div className='post'>
               <Post user={item.user} post={item.post} isUser={false}/>
               </div></li>
-          })
+          }) : <h1>Loading....</h1>
         }
       </ul>
       
