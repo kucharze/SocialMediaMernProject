@@ -18,4 +18,8 @@ router.post("/newPost", (req, res) => {
   }
 });
 
+router.get("/", (req, res) => {
+  res.json("the found posts");
+});
+
 module.exports = router;
