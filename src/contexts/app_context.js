@@ -34,7 +34,7 @@ export const AppContextProvider = ({ children }) => {
     console.log("Post login data", data);
 
     try {
-      const res = await axios.post(`${BASE_URL}/findUser`, data, {
+      const res = await axios.post(`${BASE_URL}/login`, data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -64,6 +64,7 @@ export const AppContextProvider = ({ children }) => {
     console.log("post data", post);
 
     try {
+      // user.posts.push
       const res = await axios.post(
         `${BASE_URL_POSTS}/newPost`,
         { user: user, post },
@@ -74,6 +75,7 @@ export const AppContextProvider = ({ children }) => {
         }
       );
       console.log(res);
+      setUser(res.data);
     } catch (error) {
       console.log("error creating a post ", error);
     }
