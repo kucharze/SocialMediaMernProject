@@ -14,12 +14,29 @@ router.post("/newPost", (req, res) => {
     console.log("good");
     res.send("good creation");
   } catch (error) {
-    res.status(400).json({ msg: "Error pulling posts" });
+    res.status(400).json({ msg: "Error creating a new post" });
   }
 });
 
-router.get("/", (req, res) => {
-  res.json("the found posts");
+router.get("/", async (req, res) => {
+  // res.json("the found posts");
+  let posts = [];
+  try {
+    console.log("Attempting to poll posts");
+    Posts.find({}).then(async (data) => {
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        const puser = await User.findById({ _id: data[i].user });
+        console.log("new user found,", puser);
+        posts.push({ post: data[i], user: puser });
+      }
+      console.log("the posts: ", posts);
+      res.json(posts);
+    });
+    // console.log("Postlist: ", postList);
+  } catch (error) {
+    res.status(400).json({ msg: "Error pulling posts" });
+  }
 });
 
 module.exports = router;

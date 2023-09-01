@@ -6,13 +6,14 @@ import axios from 'axios'
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function Posts() {
-  const [posts, setPosts] = useState(['the','overall','posts','page'])
+  const [posts, setPosts] = useState(null)
   //const {loadPosts} = useAuth()
 
   const loadPosts = async () => {
     try {
       const res = await axios.get(`${BASE_URL_POSTS}`);
-      console.log(res);
+      console.log("res is ",res.data);
+      setPosts(res.data)
     } catch (error) {
       console.log("Error loading posts list ", error);
     }
@@ -28,9 +29,9 @@ function Posts() {
       <h2>We will display the last so many posts here</h2>
       <ul className='postDisplay'>
         {
-          posts.map((item,i)=>{
+          posts && posts.map((item,i)=>{
             return <li key={i}><div className='post'>
-              <Post user={null} post={item} isUser={false}/>
+              <Post user={item.user} post={item.post} isUser={false}/>
               </div></li>
           })
         }
