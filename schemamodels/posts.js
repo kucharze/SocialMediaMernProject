@@ -3,7 +3,7 @@ const User = require("./users");
 
 const Posts = mongoose.Schema(
   {
-    user: { type: User, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, required: true },
     post: { type: String, required: true },
   },
   {
