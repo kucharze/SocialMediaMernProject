@@ -75,7 +75,16 @@ export const AppContextProvider = ({ children }) => {
       );
       console.log(res);
     } catch (error) {
-      console.log("error creating a post");
+      console.log("error creating a post ", error);
+    }
+  };
+
+  const loadPosts = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL_POSTS}`);
+      console.log(res);
+    } catch (error) {
+      console.log("Error loading posts list ", error);
     }
   };
 
@@ -119,6 +128,7 @@ export const AppContextProvider = ({ children }) => {
         postLogin,
         searchUser,
         createPost,
+        loadPosts,
       }}
     >
       {children}
