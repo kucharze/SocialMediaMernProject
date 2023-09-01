@@ -4,6 +4,7 @@ import axios from "axios";
 export const AppContext = createContext();
 
 const BASE_URL = "http://localhost:3001/users";
+const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState();
@@ -58,6 +59,26 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const createPost = async (post) => {
+    console.log("Creating a new post");
+    console.log("post data", post);
+
+    try {
+      const res = await axios.post(
+        `${BASE_URL_POSTS}/newPost`,
+        { user: user, post },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(res);
+    } catch (error) {
+      console.log("error creating a post");
+    }
+  };
+
   //Grab token from local storage
   function getToken() {
     // getItem returns null if there's no string
@@ -89,7 +110,16 @@ export const AppContextProvider = ({ children }) => {
   };
   return (
     <AppContext.Provider
-      value={{ getUser, user, logout, posts, postData, postLogin, searchUser }}
+      value={{
+        getUser,
+        user,
+        logout,
+        posts,
+        postData,
+        postLogin,
+        searchUser,
+        createPost,
+      }}
     >
       {children}
     </AppContext.Provider>
