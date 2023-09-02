@@ -7,7 +7,7 @@ const BASE_URL = "http://localhost:3001/users";
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 export const AppContextProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [posts, setPosts] = useState(null);
 
   const postData = async (data) => {
@@ -39,7 +39,7 @@ export const AppContextProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
       });
-      console.log(res);
+      console.log("Returned data", res);
       localStorage.setItem("token", res.data);
       getUser();
     } catch (error) {
@@ -67,14 +67,14 @@ export const AppContextProvider = ({ children }) => {
       // user.posts.push
       const res = await axios.post(
         `${BASE_URL_POSTS}/newPost`,
-        { user: user, post },
+        { id: user._id, post },
         {
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
-      console.log(res);
+      // console.log("create data response", res);
       setUser(res.data);
     } catch (error) {
       console.log("error creating a post ", error);
@@ -84,7 +84,7 @@ export const AppContextProvider = ({ children }) => {
   const loadPosts = async () => {
     try {
       const res = await axios.get(`${BASE_URL_POSTS}`);
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       console.log("Error loading posts list ", error);
     }
@@ -111,8 +111,9 @@ export const AppContextProvider = ({ children }) => {
     // If there's a token, return the user in the payload, otherwise return null
     const token = getToken();
     const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
-    //console.log(item);
+    console.log("item is ", item);
     setUser(item);
+    setPosts(item.posts);
   }
 
   const logout = () => {
@@ -125,7 +126,6 @@ export const AppContextProvider = ({ children }) => {
         getUser,
         user,
         logout,
-        posts,
         postData,
         postLogin,
         searchUser,
