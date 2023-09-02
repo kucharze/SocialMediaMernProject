@@ -7,8 +7,6 @@ const bcrypt = require("bcrypt");
 const User = require("../../schemamodels/users");
 
 router.post("/", async (req, res) => {
-  // console.log("Found a route for a post");
-
   try {
     console.log("Attempting to save a user");
     const user = await User.create(req.body);
@@ -20,9 +18,6 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  console.log("Found a route for a post");
-  // res.json("We are ok");
-
   try {
     console.log("Attempting to find a user");
     const user = await User.findOne({ email: req.body.email });
