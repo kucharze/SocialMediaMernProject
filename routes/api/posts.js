@@ -16,17 +16,12 @@ router.post("/newPost", async (req, res) => {
       user: user,
       post: req.body.post,
     });
-    // let user = req.body.id;
+
     user.posts.push(post);
     console.log("The user submitting this is, ", user);
     console.log("The new post: ", post);
     await User.findByIdAndUpdate(req.body.id, user).then((data) => {
-      // then((data) => {
-      console.log("The new data is", data);
       console.log("New Data");
-      console.log("New Data");
-      console.log("New Data");
-      E;
       console.log("The new data: ", data);
       res.json(data);
     });
@@ -44,18 +39,34 @@ router.get("/", async (req, res) => {
   try {
     console.log("Attempting to poll posts");
     Posts.find({}).then(async (data) => {
-      console.log(data);
+      //console.log(data);
       for (let i = 0; i < data.length; i++) {
         const puser = await User.findById({ _id: data[i].user });
         //console.log("new user found,", puser);
         posts.push({ post: data[i], user: puser });
       }
-      //console.log("the posts: ", posts);
       res.json(posts);
     });
     // console.log("Postlist: ", postList);
   } catch (error) {
     res.status(400).json({ msg: "Error pulling posts" });
+  }
+});
+
+router.get("/userPosts/:posts", async (req, res) => {
+  try {
+    let userPosts = [];
+    console.log("We found this route");
+    console.log("The posts are", req.params.posts);
+    console.log("Posts is a ", typeof req.params.posts);
+    let postList = req.params.posts.split(",");
+    console.log(postList);
+
+    let item = await Posts.find({ id: postList[0] });
+    console.log("The item is", item);
+    res.json("We have returned data " + postList);
+  } catch (error) {
+    console.log("We had an error", error._message);
   }
 });
 

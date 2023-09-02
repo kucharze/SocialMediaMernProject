@@ -11,8 +11,8 @@ export const AppContextProvider = ({ children }) => {
   const [posts, setPosts] = useState(null);
 
   const postData = async (data) => {
-    console.log("Posting data");
-    console.log(data);
+    //console.log("Posting data");
+    //console.log(data);
     // AXIOS
     try {
       const res = await axios.post(BASE_URL, data, {
@@ -21,7 +21,7 @@ export const AppContextProvider = ({ children }) => {
         },
       });
 
-      console.log("The response", res);
+      //console.log("The response", res);
       localStorage.setItem("token", res.data);
       getUser();
     } catch (error) {
@@ -31,7 +31,7 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const postLogin = async (data) => {
-    console.log("Post login data", data);
+    //console.log("Post login data", data);
 
     try {
       const res = await axios.post(`${BASE_URL}/login`, data, {
@@ -51,7 +51,7 @@ export const AppContextProvider = ({ children }) => {
   const searchUser = async (id) => {
     try {
       const res = await axios.get(`${BASE_URL}/findUser/${id}`);
-      console.log(res);
+      //console.log(res);
       return res.data;
     } catch (error) {
       console.log("Error searching for user: ", error);
@@ -60,8 +60,8 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const createPost = async (post) => {
-    console.log("Creating a new post");
-    console.log("post data", post);
+    //console.log("Creating a new post");
+    //console.log("post data", post);
 
     try {
       // user.posts.push
@@ -111,9 +111,8 @@ export const AppContextProvider = ({ children }) => {
     // If there's a token, return the user in the payload, otherwise return null
     const token = getToken();
     const item = token ? JSON.parse(atob(token.split(".")[1])).user : null;
-    console.log("item is ", item);
     setUser(item);
-    setPosts(item.posts);
+    // setPosts(item.posts);
   }
 
   const logout = () => {
