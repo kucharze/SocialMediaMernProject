@@ -19,24 +19,17 @@ function UserPage(props) {
       console.log("Bring in data for the current user page we are on")
       const userdata = await searchUser(id)
       console.log("userdata",userdata)
-      setUserName(userdata.screenName);
-      setPosts(userdata.posts)
-      if(userdata.posts.length === 0){
-        setPosts(["No data"])
+      setUserName(userdata.user.screenName);
+      
+      if(userdata.posts && userdata.posts.length === 0){
+        console.log("No user")
+        //setPosts(null)
       }
       setPosts(userdata.posts)
+      // setPosts(userdata.posts)
       //console.log("Current posts",posts)
+      //loadPosts();
     }
-
-    const loadPosts = async () => {
-      try {
-        const res = await axios.get(`${BASE_URL_POSTS}`);
-        console.log("res is ",res.data);
-        setPosts(res.data)
-      } catch (error) {
-        console.log("Error loading posts list ", error);
-      }
-    };
 
     useEffect(()=>{
       // if(user._id !== id){
@@ -49,6 +42,7 @@ function UserPage(props) {
       //   setPosts(user.posts)
       // }
     },[status])
+    console.log("Posts is " + posts)
   return (
     <div>
       <h1>The user profile for a particular user</h1>
@@ -64,16 +58,16 @@ function UserPage(props) {
         </div>
       }
      
-      <ul className='postDisplay'>
+      <ol className='postDisplay'>
         {
           (posts && posts.length>0) ? posts.map((item,i)=>{
             return <li key={i}><div className='post'>
               <Post user={user} post={item} isUser={user._id === id}/>
               </div></li>
           }) : 
-          <h3>{posts}This user currently has not made any posts</h3>
+          <h3>This user currently has not made any posts</h3>
         }
-      </ul>
+      </ol>
     </div>
   )
 }
