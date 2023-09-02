@@ -28,11 +28,11 @@ app.use(cors());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-app.use("/*", (req, res, next) => {
-  console.log("new data has come in: ", req.body);
+// app.use("/*", (req, res, next) => {
+//   //cole.log("new data has come in: ", req.body);
 
-  next();
-});
+//   next();
+// });
 
 // Put API routes here, before the "catch all" route
 app.use("/users", require("./routes/api/users"));
