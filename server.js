@@ -30,7 +30,6 @@ app.use(express.static(path.join(__dirname, "build")));
 
 // app.use("/*", (req, res, next) => {
 //   //cole.log("new data has come in: ", req.body);
-
 //   next();
 // });
 

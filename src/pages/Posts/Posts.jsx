@@ -21,9 +21,9 @@ function Posts() {
   };
 
   useEffect(()=>{
-    //console.log("loading posts",loadPosts)
     loadPosts()
   },[])
+  
   return (
     <div className='postList'>
       <h1>The overall posts page</h1>
