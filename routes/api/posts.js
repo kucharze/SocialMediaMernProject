@@ -7,23 +7,34 @@ const Posts = require("../../schemamodels/posts");
 const User = require("../../schemamodels/users");
 
 router.post("/newPost", async (req, res) => {
+  console.log("We are creating a new post");
   console.log("using: ", req.body);
-  //res.send("newPost route found");
+  // res.send("newPost route found");
   try {
+    let user = await User.findById(req.body.id);
     const post = await Posts.create({
-      user: req.body.user,
+      user: user,
       post: req.body.post,
     });
-    let user = req.body.user;
+    // let user = req.body.id;
     user.posts.push(post);
     console.log("The user submitting this is, ", user);
-    User.findByIdAndUpdate(req.body.user, user).then((data) => {
+    console.log("The new post: ", post);
+    await User.findByIdAndUpdate(req.body.id, user).then((data) => {
+      // then((data) => {
+      console.log("The new data is", data);
       console.log("New Data");
-      res.send(data);
+      console.log("New Data");
+      console.log("New Data");
+      E;
+      console.log("The new data: ", data);
+      res.json(data);
     });
-    console.log("good");
   } catch (error) {
-    res.status(400).json({ msg: "Error creating a new post" });
+    console.log(error._message);
+    res
+      .status(400)
+      .json({ msg: "Error creating a new post", reason: error._message });
   }
 });
 
@@ -36,10 +47,10 @@ router.get("/", async (req, res) => {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         const puser = await User.findById({ _id: data[i].user });
-        console.log("new user found,", puser);
+        //console.log("new user found,", puser);
         posts.push({ post: data[i], user: puser });
       }
-      console.log("the posts: ", posts);
+      //console.log("the posts: ", posts);
       res.json(posts);
     });
     // console.log("Postlist: ", postList);
