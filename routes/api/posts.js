@@ -53,21 +53,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/userPosts/:posts", async (req, res) => {
-  try {
-    let userPosts = [];
-    console.log("We found this route");
-    console.log("The posts are", req.params.posts);
-    console.log("Posts is a ", typeof req.params.posts);
-    let postList = req.params.posts.split(",");
-    console.log(postList);
-
-    let item = await Posts.find({ id: postList[0] });
-    console.log("The item is", item);
-    res.json("We have returned data " + postList);
-  } catch (error) {
-    console.log("We had an error", error._message);
-  }
-});
-
 module.exports = router;
