@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 // const usersCtrl = require("../../controllers/api/users");
 
 const User = require("../../schemamodels/users");
+const Posts = require("../../schemamodels/posts");
 
 router.post("/", async (req, res) => {
   try {
@@ -53,15 +54,40 @@ router.get("/findUser/:id", async (req, res) => {
 
     if (user) {
       console.log("Good user");
-      res.status(200).json(user);
+      const posts = await findPosts(user.posts);
+      //console.log("item is ", posts);
+      res.status(200).json({ user, posts });
     } else {
       console.log("bad user");
       res.status(400).json("No user found");
     }
   } catch (error) {
-    res.status(400).json({ msg: "Error searching for user" });
+    console.log(error._message);
+    res
+      .status(400)
+      .json({ msg: "Error searching for user", reason: error._message });
   }
 });
+
+const findPosts = async (posts) => {
+  console.log("We are looking for the posts");
+  console.log("the posts", posts);
+  let postList = [];
+  try {
+    // Posts.findById({ id: posts[0] }).then((data) => {
+    //   console.log("Found post ", data);
+    // });
+    for (let i = 0; i < posts.length; i++) {
+      let item = await Posts.findById(posts[0]);
+      //console.log(item);
+      postList.push(item);
+    }
+    //console.log(postList);
+    return postList;
+  } catch (error) {
+    console.log("post error", error._message);
+  }
+};
 
 module.exports = router;
 
