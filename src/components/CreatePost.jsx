@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/app_context'
 
-function CreatePost() {
+function CreatePost({status, setStatus}) {
   const {createPost} = useAuth()
 
   const [post,setPost] = useState('')
@@ -9,6 +9,7 @@ function CreatePost() {
   const handleSubmit = (e) =>{
     e.preventDefault()
     createPost(post)
+    setStatus(!status)
   }
   return (
     <div className='createPost'>
