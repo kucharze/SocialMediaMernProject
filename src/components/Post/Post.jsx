@@ -7,7 +7,7 @@ function Post({user, post, isUser}) {
   return (
     <div className={styles.Post}>
       <h1>{user && user.screenName}</h1>
-      <p>The data as part of the post: {post.post}</p>
+      <p>My post: {post.post}</p>
       {
         isUser && <div className='editing'>
           <h3>This only shows up if on the logged in User's page with their posts</h3>
