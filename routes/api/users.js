@@ -78,11 +78,11 @@ const findPosts = async (posts) => {
     //   console.log("Found post ", data);
     // });
     for (let i = 0; i < posts.length; i++) {
-      let item = await Posts.findById(posts[0]);
+      let item = await Posts.findById(posts[i]);
       //console.log(item);
       postList.push(item);
     }
-    //console.log(postList);
+    // console.log("PostList is", postList);
     return postList;
   } catch (error) {
     console.log("post error", error._message);
