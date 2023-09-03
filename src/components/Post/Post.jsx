@@ -7,18 +7,16 @@ const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function Post({user, post, isUser}) {
   //console.log('Post user',user)
+  const [savedPost, setSavedPost] = useState(post)
   const [postDesc, setPostDesc] = useState(post.post)
   const [id,setId] = useState(post._id)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
-    console.log("Trying to delete")
+    
     try {
-      let res = await axios.delete(`${BASE_URL_POSTS}/delete`,{post},{
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      console.log("Trying to delete")
+      let res = await axios.delete(`${BASE_URL_POSTS}/delete/${id}`);
       console.log(res)
     } catch (error) {
       console.log("Error trying to delete a post")
