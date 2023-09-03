@@ -53,4 +53,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.put("/edit", async (req, res) => {
+  console.log("Editing a post");
+
+  try {
+    console.log("You found the edit post route");
+    let oldPost = await Posts.findById(req.body.id);
+
+    console.log(oldPost);
+
+    await Posts.findByIdAndUpdate(req.body.id, req.body.post);
+    res.status(200).json("A good edit");
+  } catch (error) {
+    console.log("edit posts error", error);
+  }
+});
+
 module.exports = router;
