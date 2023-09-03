@@ -11,8 +11,19 @@ function Post({user, post, isUser}) {
   const [id,setId] = useState(post._id)
   //console.log("post is ", post)
 
-  const handleDelete = () =>{
+  const handleDelete = async () =>{
     console.log("Trying to delete")
+    try {
+      let res = await axios.delete(`${BASE_URL_POSTS}/delete`,{post},{
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(res)
+    } catch (error) {
+      console.log("Error trying to delete a post")
+    }
+    
   }
 
   const handleEdit = async () =>{

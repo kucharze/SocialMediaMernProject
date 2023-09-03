@@ -69,4 +69,8 @@ router.put("/edit", async (req, res) => {
   }
 });
 
+router.delete("/delete", (req, res) => {
+  console.log("Found the delete route");
+});
+
 module.exports = router;
