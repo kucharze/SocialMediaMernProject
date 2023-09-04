@@ -14,6 +14,8 @@ function UserPage(props) {
     const [create,setCreate] = useState(false)
     const [posts, setPosts] = useState(null)
     const [status,setStatus] = useState(false)
+    const [empty, setEmpty] = useState(false)
+    let count = 0;
 
     const grabUser = async() =>{
       console.log("Bring in data for the current user page we are on")
@@ -61,6 +63,7 @@ function UserPage(props) {
       <ol className='postDisplay'>
         {
           (posts && posts.length>0) ? 
+            empty ? 
             posts.map((item,i)=>{
               console.log("This post is " , + item)
               console.log(typeof(item))
@@ -69,8 +72,14 @@ function UserPage(props) {
                   <Post user={user} post={item} isUser={user._id === id}/>
                   </div></li>
               }
+              else{
+                count++;
+                if(count === posts.length){
+                  setEmpty(true)
+                }
+              }
               
-            }) : 
+            }) : <h3>This user currently has not made any posts</h3> : 
           <h3>This user currently has not made any posts</h3>
         }
       </ol>
