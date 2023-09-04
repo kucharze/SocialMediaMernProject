@@ -23,18 +23,22 @@ function App() {
   return (
     <div className="App">
       <h1>K</h1>
-      {user ? (
-        <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Posts />} />
-            <Route path="/User/:id" element={<UserPage />} />
-            <Route path="/News" element={<NewsSearch />} />
-          </Routes>
-        </>
-      ) : (
-        <Auth />
-      )}
+      <div className="Display">
+        {user ? (
+          <>
+            <Navbar />
+            <div className="main">
+              <Routes>
+                <Route path="/" element={<Posts />} />
+                <Route path="/User/:id" element={<UserPage />} />
+                <Route path="/News" element={<NewsSearch />} />
+              </Routes>
+            </div>
+          </>
+        ) : (
+          <Auth />
+        )}
+      </div>
     </div>
   );
 }

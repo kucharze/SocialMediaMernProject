@@ -5,6 +5,10 @@
   /* height: 100vh; */
 }
 
+.Display {
+  display: flex;
+}
+
 .createPost {
   border: solid black;
 }
@@ -17,6 +21,18 @@ input {
 
 .navbar a {
   color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.navbar {
+  width: 10%;
+}
+
+.main {
+  width: 80%;
 }
 
 .postDisplay {

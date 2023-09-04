@@ -7,11 +7,11 @@ function Navbar() {
   return (
     <div className='navbar'>
       <Link to={`/User/${user._id}`}>{user.screenName}'s page</Link>
-      &nbsp; | &nbsp;
+      &nbsp;  &nbsp;
       <Link to={`/`}>🏠 Home 🏠</Link>
-      &nbsp; | &nbsp;
+      &nbsp;  &nbsp;
       <Link to={`/News`}>Search news</Link>
-      &nbsp; | &nbsp;
+      &nbsp;  &nbsp;
       <Link to={``} onClick={()=>logout()}>Logout</Link>
     </div>
   )
