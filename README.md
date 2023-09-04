@@ -24,3 +24,5 @@ For the most part, I was able to figure stuff out. One particularly troublesome 
 
 Luckily a found logic using $pull. I used this on the user's posts list to remove the id
 Of course, this only made it null, so I had to whip up some logic that checks to make sure we don't display data for a null value post
+
+Another troublesome part was what to do after creating a new post. After some work, I managed to get it to work by allowing default form operations
