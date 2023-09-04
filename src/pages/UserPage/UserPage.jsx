@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import CreatePost from '../../components/CreatePost'
+import CreatePost from '../../components/CreatePost/CreatePost'
 import { useAuth } from '../../contexts/app_context'
 import Post from '../../components/Post/Post'
 
