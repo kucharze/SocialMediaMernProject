@@ -91,20 +91,7 @@ router.delete("/delete/:id", async (req, res) => {
     });
     console.log("usernew", usernew);
 
-    // User.remove({ posts: posts._id });
-
-    // console.log("attempting to delete from new user");
-    // for (let i = 0; i < usernew.posts.length; i++) {
-    //   console.log("Post id", user.posts[i]);
-    //   console.log(typeof user.posts[i]);
-    //   while (user.posts[i] === null) {
-    //     console.log("This is the post to be removed");
-    //     user.posts.splice(i, 1);
-    //   }
-    // }
-
-    // let newUse = await User.findByIdAndUpdate(user._id, { usernew });
-    // res.json("Successful delete " + newUse);
+    res.json("Successful delete");
   } catch (error) {
     console.log("Delete error ", error);
     res.status(400).json("An error occured while attempting to delete");
