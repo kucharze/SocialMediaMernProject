@@ -69,8 +69,8 @@ function UserPage(props) {
                 }
               }
               
-            }) : <h3>This user currently has not made any posts</h3> : 
-          <h3>This user currently has not made any posts</h3>
+            }) : <h3>This user currently has no posts to display</h3> : 
+          <h3>This user has no posts to display</h3>
         }
       </ol>
     </div>
