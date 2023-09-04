@@ -18,7 +18,7 @@ function LoginForm() {
     }
   return (
     <div>
-      <h1>Or login with an existing account</h1>
+      <h1>Already have an account - log in here</h1>
       <form onSubmit={handleSubmit}>
         <input name='email' type='email' onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/> <br/>
         <input name='password' type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='password'/><br/>

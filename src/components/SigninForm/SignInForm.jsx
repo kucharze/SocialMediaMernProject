@@ -24,8 +24,8 @@ function SignInForm() {//Form for creating a new sign in
       <form onSubmit={handleSubmit}>
         <input name='screenname' type='text' onChange={(e)=>setScreenName(e.target.value)} placeholder='Screen Name'/> <br/>
         <input name='email' type='email' onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/> <br/>
-        <input name='password' type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='password'/><br/>
-        <input name='confirm' type='password' onChange={(e)=>setConfirm(e.target.value)} placeholder='password'/><br/>
+        <input name='password' type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password'/><br/>
+        <input name='confirm' type='password' onChange={(e)=>setConfirm(e.target.value)} placeholder='Verify'/><br/>
         <input type='submit' value="Create an Account"/>
       </form>
       {
