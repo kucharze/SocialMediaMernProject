@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/app_context'
 import Post from '../../components/Post/Post'
 
 function UserPage(props) {
+  //Page to display a user
     const id = useParams().id
     const {user, setUser, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
@@ -14,7 +15,7 @@ function UserPage(props) {
     const [empty, setEmpty] = useState(false)
     let count = 0;
 
-    const grabUser = async() =>{
+    const grabUser = async() =>{//Grab the data for a user
       console.log("Bring in data for the current user page we are on")
       const userdata = await searchUser(id)
       console.log("userdata",userdata)
@@ -25,7 +26,6 @@ function UserPage(props) {
         //setPosts(null)
       }
       setPosts(userdata.posts)
-      // setPosts(userdata.posts)
       //console.log("Current posts",posts)
     }
 
@@ -40,19 +40,18 @@ function UserPage(props) {
     <div>
       <h1>The user profile for a particular user</h1>
       <h2>{userName}</h2>
-      {/* <h2>The id: {id}</h2> */}
       {
         (user._id === id) && 
         <div>
         <button onClick={()=>{setCreate(!create)}}>Create a new post</button>
-        {
+        {//Should we render logic for creating a post
           create &&  <CreatePost status={status} setStatus={setStatus} />
         }
         </div>
       }
      
       <ol className='postDisplay'>
-        {
+        {//Are there any posts to render, if so render them
           (posts && posts.length>0) ? 
             empty ? 
             posts.map((item,i)=>{

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useAuth } from '../../contexts/app_context'
 
 function LoginForm() {
+    //form for loggin in to the site
     const {postLogin} = useAuth()
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')

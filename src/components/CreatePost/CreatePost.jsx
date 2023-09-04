@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useAuth } from '../../contexts/app_context'
 
-function CreatePost({status, setStatus}) {
+function CreatePost({status, setStatus}) {//Form for Creating a new psot
   const {createPost} = useAuth()
 
   const [post,setPost] = useState('')
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    createPost(post)
+    createPost(post)//Send post data to function to send to server
     setStatus(!status)
   }
   return (

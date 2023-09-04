@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useAuth } from '../../contexts/app_context'
 
-function SignInForm() {
+function SignInForm() {//Form for creating a new sign in
     const {postData} = useAuth()
     const [screenName, setScreenName] = useState('')
     const [email, setEmail] = useState('')
@@ -11,6 +11,7 @@ function SignInForm() {
     const handleSubmit = (e) =>{
         e.preventDefault()
         console.log("Submitting")
+        //Send data to server
         postData({screenName, email, password,confirm, posts: []})
     }
   return (
