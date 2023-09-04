@@ -124,6 +124,7 @@ export const AppContextProvider = ({ children }) => {
       value={{
         getUser,
         user,
+        setUser,
         logout,
         postData,
         postLogin,
