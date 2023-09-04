@@ -42,7 +42,7 @@ export const AppContextProvider = ({ children }) => {
       );
       getUser();
     } catch (error) {
-      console.log("An error occurred: ", error);
+      console.log("A Login error occurred: ", error);
       return "Login failed";
     }
   };

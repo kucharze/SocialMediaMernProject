@@ -6,11 +6,15 @@ function LoginForm() {
     const {postLogin} = useAuth()
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error,setError] = useState(false)
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         console.log("Logining in",{email,password})
-        postLogin({email,password})
+        let res = await postLogin({email,password})
+        if(res=="Login failed"){
+          setError(true)
+        }
     }
   return (
     <div>
@@ -20,6 +24,9 @@ function LoginForm() {
         <input name='password' type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='password'/><br/>
         <input type='submit' value="Login"/>
       </form>
+      {
+        error && <h1>Invalid Credentials</h1>
+      }
     </div>
   )
 }
