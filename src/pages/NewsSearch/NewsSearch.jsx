@@ -7,7 +7,7 @@ function NewsSearch() {
     const [articles, setArticles] = useState(null)
 
     const searchNews = async () =>{
-        let api = `https://newsapi.org/v2/everything?q=tesla&from=2023-08-04&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
+        let api = `https://newsapi.org/v2/everything?q=${search}&from=2023-08-04&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
         let res = await axios.get(api)
         console.log(res.data)
         setArticles(res.data.articles)
@@ -19,17 +19,21 @@ function NewsSearch() {
       <button onClick={searchNews}>Search news</button>
 
       <div>
+         {
+            articles.length == 0 && <h1>No articles found</h1>
+        }
         {
             articles && articles.map((item)=>{
-                return <>
-                <h1>Title:{item.title}</h1>
+                return <div className='news'>
+                <h1>{item.title}</h1>
                 <h2>Info</h2>
-                <p>{item.desciption}</p>
+                <p>{item.description}</p>
                 <a href={item.url}>See link</a>
-                </>
+                </div>
                 
             })
         }
+       
       </div>
     </div>
   )
