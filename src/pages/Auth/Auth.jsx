@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 // import { useAuth } from '../../contexts/app_context'
-import SignInForm from '../../components/SignInForm'
-import LoginForm from '../../components/LoginForm'
+import SignInForm from '../../components/SigninForm/SignInForm'
+import LoginForm from '../../components/LoginForm/LoginForm'
 
 function Auth() {
 
