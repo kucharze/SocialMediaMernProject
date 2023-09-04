@@ -3,9 +3,6 @@ import { useParams } from 'react-router-dom'
 import CreatePost from '../../components/CreatePost'
 import { useAuth } from '../../contexts/app_context'
 import Post from '../../components/Post/Post'
-import axios from 'axios'
-
-const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function UserPage(props) {
     const id = useParams().id
@@ -30,21 +27,15 @@ function UserPage(props) {
       setPosts(userdata.posts)
       // setPosts(userdata.posts)
       //console.log("Current posts",posts)
-      //loadPosts();
     }
 
     useEffect(()=>{
-      // if(user._id !== id){
         console.log("Grabbing from server")
         grabUser()
-      // }
-      // else{
-      //   console.log("Grabbing from User var")
-      //   setUserName(user.screenName)
-      //   setPosts(user.posts)
-      // }
+
     },[status])
-    console.log("Posts is " + posts)
+    // console.log("Posts is " + posts)
+
   return (
     <div>
       <h1>The user profile for a particular user</h1>

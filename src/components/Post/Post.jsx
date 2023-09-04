@@ -56,7 +56,6 @@ function Post({user, post, isUser}) {
       <p>My post: {postDesc}</p>
       {
         isUser && <div className='editing'>
-          <h3>This only shows up if on the logged in User's page with their posts</h3>
           <button onClick={handleEdit}>To Edit</button>
           <button onClick={handleDelete}>To Delete</button>
           </div>

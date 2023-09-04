@@ -8,10 +8,9 @@ const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [posts, setPosts] = useState(null);
+  // const [posts, setPosts] = useState(null);
 
   const postData = async (data) => {
-    //console.log("Posting data");
     //console.log(data);
     // AXIOS
     try {
