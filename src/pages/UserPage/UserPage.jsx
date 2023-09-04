@@ -26,8 +26,20 @@ function UserPage(props) {
         console.log("No user")
         //setPosts(null)
       }
+      fixPosts(userdata.posts)
       setPosts(userdata.posts)
-      console.log("Current posts",posts)
+      //console.log("Current posts",userdata.posts)
+      //console.log(posts && posts.length>0)
+      if(empty===true){
+        empty=false
+      }
+      //console.log("empty is ", empty)
+    }
+
+    let fixPosts = (posts) =>{
+      for(let i=0; i<posts.length; i++){
+        console.log(posts[i])
+      }
     }
 
     useEffect(()=>{
@@ -35,7 +47,8 @@ function UserPage(props) {
         grabUser()
 
     },[status])
-    // console.log("Posts is " + posts)
+    //console.log("Posts is " + posts)
+    //console.log("empty is ", empty)
 
   return (
     <div className={styles.User}>
@@ -54,11 +67,11 @@ function UserPage(props) {
       <ol className='postDisplay'>
         {//Are there any posts to render, if so render them
           (posts && posts.length>0) ? 
-            empty ? 
+            !empty ? 
             posts.map((item,i)=>{
-              console.log("This post is " , + item)
+              console.log("This post is " , item)
               console.log(typeof(item))
-              if(item!=null){
+              if(item!==null){
                 return <li key={i}><div className='post'>
                   <Post user={user} post={item} isUser={user._id === id}/>
                   </div></li>
@@ -71,7 +84,8 @@ function UserPage(props) {
                 }
               }
               
-            }) : <h3>This user currently has no posts to display</h3> : 
+            }) : 
+            <h3>This user currently has no posts to display becuase of null</h3> : 
           <h3>This user has no posts to display</h3>
         }
       </ol>
