@@ -17,7 +17,10 @@ function Post({user, post, isUser}) {
     try {
       console.log("Trying to delete")
       let res = await axios.delete(`${BASE_URL_POSTS}/delete/${id}`);
-      console.log(res)
+      console.log("Delete res is ",res.data)
+      if(res.status === 200){
+        setPostDesc("This post has been deleted")
+      }
     } catch (error) {
       console.log("Error trying to delete a post")
     }
