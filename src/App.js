@@ -7,6 +7,7 @@ import Posts from "./pages/Posts/Posts";
 import UserPage from "./pages/UserPage/UserPage";
 import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
+import NewsSearch from "./pages/NewsSearch/NewsSearch";
 
 function App() {
   const { user, getUser } = useAuth();
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Posts />} />
             <Route path="/User/:id" element={<UserPage />} />
+            <Route path="/News" element={<NewsSearch />} />
           </Routes>
         </>
       ) : (
