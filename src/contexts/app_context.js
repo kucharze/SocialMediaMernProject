@@ -10,18 +10,20 @@ export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   // const [posts, setPosts] = useState(null);
 
+  const postRequest = async (data, url) => {
+    const res = await axios.post(url, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return res.data;
+  };
+
   const postData = async (data) => {
     //console.log(data);
     // AXIOS
     try {
-      const res = await axios.post(BASE_URL, data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      //console.log("The response", res);
-      localStorage.setItem("token", res.data);
+      localStorage.setItem("token", await postRequest(data, BASE_URL));
       getUser();
     } catch (error) {
       console.log("An error occurred: ", error);
@@ -33,13 +35,10 @@ export const AppContextProvider = ({ children }) => {
     //console.log("Post login data", data);
 
     try {
-      const res = await axios.post(`${BASE_URL}/login`, data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log("Returned data", res);
-      localStorage.setItem("token", res.data);
+      localStorage.setItem(
+        "token",
+        await postRequest(data, `${BASE_URL}/login`)
+      );
       getUser();
     } catch (error) {
       console.log("An error occurred: ", error);
