@@ -10,6 +10,7 @@ function Post({user, post, isUser}) {
   const [savedPost, setSavedPost] = useState(post)
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
+  const [disabled, setDisabled] = useState(false)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
@@ -20,6 +21,7 @@ function Post({user, post, isUser}) {
       console.log("Delete res is ",res.data)
       if(res.status === 200){
         setPostDesc("This post has been deleted")
+        setDisabled(true)
       }
     } catch (error) {
       console.log("Error trying to delete a post")
@@ -56,8 +58,8 @@ function Post({user, post, isUser}) {
       <p>My post: {postDesc}</p>
       {
         isUser && <div className='editing'>
-          <button onClick={handleEdit}>To Edit</button>
-          <button onClick={handleDelete}>To Delete</button>
+          <button disabled={disabled} onClick={handleEdit}>To Edit</button>
+          <button disabled={disabled} onClick={handleDelete}>To Delete</button>
           </div>
       }
       
