@@ -14,7 +14,6 @@ function App() {
 
   const setUpUser = async () => {
     await getUser();
-    console.log("appjs user", user);
   };
 
   useEffect(() => {
