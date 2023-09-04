@@ -8,7 +8,7 @@ function Navbar() {
     <div className='navbar'>
       <Link to={`/User/${user._id}`}>{user.screenName}'s page</Link>
       &nbsp; | &nbsp;
-      <Link to={`/`}>Main posts thread</Link>
+      <Link to={`/`}>🏠 Home 🏠</Link>
       &nbsp; | &nbsp;
       <Link to={``} onClick={()=>logout()}>Logout</Link>
     </div>
