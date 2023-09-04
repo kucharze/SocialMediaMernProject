@@ -9,5 +9,14 @@
   color: black;
   margin: 10px;
   font-size: 15px;
-  padding: 10px;
+  padding: 25px;
+}
+
+.news a {
+  font-size: 25px;
+  color: blue;
+}
+
+.news p {
+  font-size: 25px;
 }
