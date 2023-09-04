@@ -8,7 +8,7 @@ const User = require("../../schemamodels/users");
 
 router.post("/newPost", async (req, res) => {
   console.log("We are creating a new post");
-  console.log("using: ", req.body);
+  //console.log("using: ", req.body);
   // res.send("newPost route found");
   try {
     let user = await User.findById(req.body.id);
@@ -18,15 +18,14 @@ router.post("/newPost", async (req, res) => {
     });
 
     user.posts.push(post);
-    console.log("The user submitting this is, ", user);
-    console.log("The new post: ", post);
+    //console.log("The user submitting this is, ", user);
+    //console.log("The new post: ", post);
+
     await User.findByIdAndUpdate(req.body.id, user).then((data) => {
-      console.log("New Data");
-      console.log("The new data: ", data);
       res.json(data);
     });
   } catch (error) {
-    console.log(error._message);
+    console.log(error);
     res
       .status(400)
       .json({ msg: "Error creating a new post", reason: error._message });
@@ -91,6 +90,7 @@ router.delete("/delete/:id", async (req, res) => {
       $pull: { posts: { id: post._id } },
     });
     console.log("usernew", usernew);
+
     // User.remove({ posts: posts._id });
 
     // console.log("attempting to delete from new user");
