@@ -1,0 +1,13 @@
+.NewsSearch {
+  background-color: blue;
+  font-size: 30px;
+}
+
+.news {
+  border: solid black;
+  background-color: gray;
+  color: black;
+  margin: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
