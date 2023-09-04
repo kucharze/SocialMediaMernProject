@@ -8,6 +8,7 @@ import UserPage from "./pages/UserPage/UserPage";
 import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
 import NewsSearch from "./pages/NewsSearch/NewsSearch";
+import k from "./k.PNG";
 
 function App() {
   const { user, getUser } = useAuth();
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>K</h1>
+      <img src={k} alt="" />
       <div className="Display">
         {user ? (
           <>
