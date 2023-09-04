@@ -17,3 +17,10 @@ Used for login and signup features
 ### A User page that displays a user based on their Profile
 
 This page will options to edit, delete, and create a post if the page belongs to the logged in user
+
+### Troublesome areas
+
+For the most part, I was able to figure stuff out. One particularly troublesome area was the delete function for posts. Deleting the post itself was not necessarily the problem, it was removing the link from the user.
+
+Luckily a found logic using $pull. I used this on the user's posts list to remove the id
+Of course, this only made it null, so I had to whip up some logic that checks to make sure we don't display data for a null value post
