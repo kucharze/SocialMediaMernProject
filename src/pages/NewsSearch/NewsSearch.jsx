@@ -20,7 +20,7 @@ function NewsSearch() {
 
       <div>
          {
-            articles.length == 0 && <h1>No articles found</h1>
+            articles && articles.length == 0 && <h1>No articles found</h1>
         }
         {
             articles && articles.map((item)=>{
