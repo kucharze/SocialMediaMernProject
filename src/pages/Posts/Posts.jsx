@@ -26,8 +26,7 @@ function Posts() {
   
   return (
     <div className='postList'>
-      <h1>The overall posts page</h1>
-      <h2>We will display the last so many posts here</h2>
+      <h2>See what others are posting about</h2>
       <ul className='postDisplay'>
         {
           posts ? posts.map((item,i)=>{
