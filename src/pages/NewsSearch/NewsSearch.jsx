@@ -25,8 +25,8 @@ function NewsSearch() {
             articles && articles.length == 0 && <h1>No articles found</h1>
         }
         {
-            articles && articles.map((item)=>{
-                return <div className={styles.news}>
+            articles && articles.map((item,i)=>{
+                return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
                 <h2>Info</h2>
                 <p>{item.description}</p>
