@@ -50,7 +50,7 @@ export const AppContextProvider = ({ children }) => {
   const searchUser = async (id) => {
     try {
       const res = await axios.get(`${BASE_URL}/findUser/${id}`);
-      //console.log(res);
+      console.log("userdata return", res.data);
       return res.data;
     } catch (error) {
       console.log("Error searching for user: ", error);
@@ -60,7 +60,6 @@ export const AppContextProvider = ({ children }) => {
 
   const createPost = async (post) => {
     //console.log("Creating a new post");
-    //console.log("post data", post);
 
     try {
       // user.posts.push
@@ -83,7 +82,6 @@ export const AppContextProvider = ({ children }) => {
   const loadPosts = async () => {
     try {
       const res = await axios.get(`${BASE_URL_POSTS}`);
-      // console.log(res);
     } catch (error) {
       console.log("Error loading posts list ", error);
     }
