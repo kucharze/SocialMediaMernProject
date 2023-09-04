@@ -7,12 +7,16 @@ function SignInForm() {//Form for creating a new sign in
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
+    const [error,setError] = useState(false)
 
     const handleSubmit = (e) =>{
         e.preventDefault()
         console.log("Submitting")
         //Send data to server
-        postData({screenName, email, password,confirm, posts: []})
+        let response = postData({screenName, email, password,confirm, posts: []})
+        if(response!="good"){
+          setError(true)
+        }
     }
   return (
     <div>
@@ -24,6 +28,9 @@ function SignInForm() {//Form for creating a new sign in
         <input name='confirm' type='password' onChange={(e)=>setConfirm(e.target.value)} placeholder='password'/><br/>
         <input type='submit' value="Create an Account"/>
       </form>
+      {
+        error && <h1>Problem creating login</h1>
+      }
     </div>
   )
 }

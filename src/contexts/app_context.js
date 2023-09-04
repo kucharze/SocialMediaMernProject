@@ -25,6 +25,7 @@ export const AppContextProvider = ({ children }) => {
     try {
       localStorage.setItem("token", await postRequest(data, BASE_URL));
       getUser();
+      return "good";
     } catch (error) {
       console.log("An error occurred: ", error);
       return "Sign in failed";
