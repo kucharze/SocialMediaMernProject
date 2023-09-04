@@ -9,7 +9,7 @@ const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function UserPage(props) {
     const id = useParams().id
-    const {user, searchUser} = useAuth()
+    const {user, setUser, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
     const [create,setCreate] = useState(false)
     const [posts, setPosts] = useState(null)
@@ -60,11 +60,17 @@ function UserPage(props) {
      
       <ol className='postDisplay'>
         {
-          (posts && posts.length>0) ? posts.map((item,i)=>{
-            return <li key={i}><div className='post'>
-              <Post user={user} post={item} isUser={user._id === id}/>
-              </div></li>
-          }) : 
+          (posts && posts.length>0) ? 
+            posts.map((item,i)=>{
+              console.log("This post is " , + item)
+              console.log(typeof(item))
+              if(item!=null){
+                return <li key={i}><div className='post'>
+                  <Post user={user} post={item} isUser={user._id === id}/>
+                  </div></li>
+              }
+              
+            }) : 
           <h3>This user currently has not made any posts</h3>
         }
       </ol>
