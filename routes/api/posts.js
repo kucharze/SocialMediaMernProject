@@ -62,15 +62,48 @@ router.put("/edit", async (req, res) => {
 
     console.log(oldPost);
 
+    //Update the user based on the passed in post data
     await Posts.findByIdAndUpdate(req.body.id, req.body.post);
     res.status(200).json("A good edit");
   } catch (error) {
     console.log("edit posts error", error);
+    res.status(400).json("An error occured while attempting to edit");
   }
 });
 
-router.delete("/delete", (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   console.log("Found the delete route");
+
+  try {
+    console.log("Attempting to delete");
+    console.log(req.params.id);
+    let post = await Posts.findByIdAndRemove(req.params.id);
+
+    console.log("Found post ", post);
+    // Posts.delete(post._id);
+    //Grab the post's user
+    let user = await User.findById(post.user);
+    console.log("Found user", user);
+
+    console.log(user.posts);
+
+    let usernew = await User.findByIdAndUpdate(user._id, {
+      $pull: { posts: { id: post._id } },
+    });
+    console.log("usernew", usernew);
+    // User.remove({ posts: posts._id });
+    // for (let i = 0; i < user.posts.length; i++) {
+    //   console.log("Post id", user.posts[i]);
+    //   console.log(typeof user.posts[i]);
+    //   if (user.posts[i] === post._id) {
+    //     console.log("This is the post to be removed");
+    //   }
+    // }
+    res.json("Successful delete");
+  } catch (error) {
+    console.log("Delete error ", error);
+    res.status(400).json("An error occured while attempting to delete");
+  }
 });
 
 module.exports = router;

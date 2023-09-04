@@ -8,8 +8,8 @@ const BASE_URL_POSTS = "http://localhost:3001/posts";
 function Post({user, post, isUser}) {
   //console.log('Post user',user)
   const [savedPost, setSavedPost] = useState(post)
-  const [postDesc, setPostDesc] = useState(post.post)
-  const [id,setId] = useState(post._id)
+  const [postDesc, setPostDesc] = useState(post ? post.post : null)
+  const [id,setId] = useState(post ? post._id : null)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
