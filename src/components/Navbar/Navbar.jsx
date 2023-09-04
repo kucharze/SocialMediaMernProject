@@ -10,6 +10,8 @@ function Navbar() {
       &nbsp; | &nbsp;
       <Link to={`/`}>🏠 Home 🏠</Link>
       &nbsp; | &nbsp;
+      <Link to={`/News`}>Search news</Link>
+      &nbsp; | &nbsp;
       <Link to={``} onClick={()=>logout()}>Logout</Link>
     </div>
   )
