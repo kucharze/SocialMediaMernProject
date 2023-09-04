@@ -55,7 +55,7 @@ function Post({user, post, isUser}) {
   return (
     <div className={styles.Post}>
       <Link to={`/User/${user._id}`}><h1>{user && user.screenName}</h1></Link>
-      <p>My post: {postDesc}</p>
+      <p>{postDesc}</p>
       {
         isUser && <div className='editing'>
           <button disabled={disabled} onClick={handleEdit}>To Edit</button>
