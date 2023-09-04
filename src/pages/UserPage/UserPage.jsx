@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import CreatePost from '../../components/CreatePost/CreatePost'
 import { useAuth } from '../../contexts/app_context'
 import Post from '../../components/Post/Post'
+import styles from './UserPage.module.css'
 
 function UserPage(props) {
   //Page to display a user
@@ -26,7 +27,7 @@ function UserPage(props) {
         //setPosts(null)
       }
       setPosts(userdata.posts)
-      //console.log("Current posts",posts)
+      console.log("Current posts",posts)
     }
 
     useEffect(()=>{
@@ -37,7 +38,7 @@ function UserPage(props) {
     // console.log("Posts is " + posts)
 
   return (
-    <div>
+    <div className={styles.User}>
       <h1>The user profile for a particular user</h1>
       <h2>{userName}</h2>
       {
@@ -65,6 +66,7 @@ function UserPage(props) {
               else{
                 count++;
                 if(count === posts.length){
+                  console.log("Is empty")
                   setEmpty(true)
                 }
               }

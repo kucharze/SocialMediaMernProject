@@ -18,7 +18,7 @@ function NewsSearch() {
     <div className={styles.NewsSearch}>
       <h1>News Search</h1>
       <input type='text' value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
-      <button onClick={searchNews}>Search news</button>
+      <button className={styles.btn} onClick={searchNews}>Search news</button>
 
       <div>
          {
