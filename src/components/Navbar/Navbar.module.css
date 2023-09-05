@@ -5,11 +5,11 @@
 }
 
 .navbar {
-  width: 10%;
+  width: 15%;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 900px;
+  max-height: 950px;
   align-items: center;
 }
