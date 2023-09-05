@@ -25,8 +25,8 @@ function Posts() {
   },[])
   
   return (
-    <div className='postList'>
-      <h2>See what others are posting about</h2>
+    <div className={styles.postList}>
+      <h1>See what others are posting about</h1>
       <ul className={styles.postDisplay}>
         {
           posts ? posts.map((item,i)=>{

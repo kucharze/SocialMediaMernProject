@@ -9,3 +9,7 @@
 .postDisplay li {
   margin: 10px;
 }
+
+.postList h1 {
+  font-size: 40px;
+}
