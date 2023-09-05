@@ -14,7 +14,7 @@ function SignInForm() {//Form for creating a new sign in
         console.log("Submitting")
         //Send data to server
         let response = postData({screenName, email, password,confirm, posts: []})
-        if(response!="good"){
+        if(response!=="good"){
           setError(true)
         }
     }
