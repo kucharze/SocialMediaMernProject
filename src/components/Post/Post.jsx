@@ -52,8 +52,11 @@ function Post({user, post, isUser,time}) {
   }
   return (
     <div className={styles.Post}>
-      <Link to={`/User/${user._id}`}><h2>{user && user}</h2></Link>
-      <h4>{time}</h4>
+      <div className={styles.postTitle}>
+        <Link to={`/User/${user._id}`}><h2>{user && user}</h2></Link>
+        <h4>{time}</h4>
+      </div>
+      
       <p>{postDesc}</p>
       {
         isUser && <div className='editing'>
