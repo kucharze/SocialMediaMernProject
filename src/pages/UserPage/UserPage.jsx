@@ -52,8 +52,7 @@ function UserPage(props) {
 
   return (
     <div className={styles.User}>
-      <h1>The user profile for a particular user</h1>
-      <h2>{userName}</h2>
+      <h1>{userName}'s page</h1>
       {
         (user._id === id) && 
         <div>
