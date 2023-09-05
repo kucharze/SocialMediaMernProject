@@ -8,7 +8,7 @@ import UserPage from "./pages/UserPage/UserPage";
 import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
 import NewsSearch from "./pages/NewsSearch/NewsSearch";
-import k from "./k.PNG";
+import k from "./K 2.JPG";
 
 function App() {
   const { user, getUser } = useAuth();
