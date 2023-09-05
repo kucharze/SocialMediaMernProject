@@ -5,6 +5,7 @@ const Posts = mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, required: true },
     post: { type: String, required: true },
+    likes: { type: Number, required: true },
   },
   {
     timestamps: true, //Tells when the timestamp has been created or last updated
