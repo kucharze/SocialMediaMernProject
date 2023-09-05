@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
+import styles from './Widget.module.css'
 
 function Widget() {
     const [articles, setArticles] = useState(null)
@@ -17,15 +18,14 @@ function Widget() {
         searchNews()
     },[])
   return (
-    <div>
+    <div className={styles.Weather}>
       <h1>The Widget component</h1>
       {
             articles && articles.map((item,i)=>{
               if(item.title!='[Removed]')
-                return <div key={i}>
+                return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
                 <h2>Info</h2>
-                <p>{item.description}</p>
                 <a href={item.url}>See link</a>
                 </div>
                 
