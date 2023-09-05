@@ -19,7 +19,7 @@ function Widget() {
     },[])
   return (
     <div className={styles.Weather}>
-      <h1>The Widget component</h1>
+      <h1>Today's hot topics</h1>
       {
             articles && articles.map((item,i)=>{
               if(item.title!=='[Removed]')
