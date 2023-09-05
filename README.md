@@ -20,7 +20,7 @@ This page will options to edit, delete, and create a post if the page belongs to
 
 ### React side diagram
 
-![Alt text](image-1.png)
+![Alt text](image-2.png)
 
 ### Troublesome areas
 
