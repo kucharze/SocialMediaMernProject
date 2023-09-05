@@ -83,14 +83,6 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
-  const loadPosts = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL_POSTS}`);
-    } catch (error) {
-      console.log("Error loading posts list ", error);
-    }
-  };
-
   //Grab token from local storage
   function getToken() {
     // getItem returns null if there's no string
@@ -131,7 +123,6 @@ export const AppContextProvider = ({ children }) => {
         postLogin,
         searchUser,
         createPost,
-        loadPosts,
       }}
     >
       {children}

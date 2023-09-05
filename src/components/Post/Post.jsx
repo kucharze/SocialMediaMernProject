@@ -6,8 +6,6 @@ import axios from 'axios'
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function Post({user, post, isUser,time}) {
-  //console.log('Post user',user)
-  const [savedPost, setSavedPost] = useState(post)
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)

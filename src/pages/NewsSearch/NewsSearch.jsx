@@ -22,11 +22,11 @@ function NewsSearch() {
 
       <div className={styles.info}>
          {
-            articles && articles.length == 0 && <h1>No articles found</h1>
+            articles && articles.length === 0 && <h1>No articles found</h1>
         }
         {
             articles && articles.map((item,i)=>{
-              if(item.title!='[Removed]')
+              if(item.title!=='[Removed]')
                 return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
                 <h2>Info</h2>

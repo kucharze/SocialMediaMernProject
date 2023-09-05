@@ -8,7 +8,7 @@ import styles from './UserPage.module.css'
 function UserPage(props) {
   //Page to display a user
     const id = useParams().id
-    const {user, setUser, searchUser} = useAuth()
+    const {user, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
     const [create,setCreate] = useState(false)
     const [posts, setPosts] = useState(null)

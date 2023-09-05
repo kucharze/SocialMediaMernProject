@@ -12,7 +12,7 @@ function LoginForm() {
         e.preventDefault();
         console.log("Logining in",{email,password})
         let res = await postLogin({email,password})
-        if(res=="Login failed"){
+        if(res==="Login failed"){
           setError(true)
         }
     }
