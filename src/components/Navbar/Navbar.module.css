@@ -1,0 +1,15 @@
+.navbar a {
+  color: white;
+  font-size: 30px;
+  margin: 25px;
+}
+
+.navbar {
+  width: 10%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 900px;
+  align-items: center;
+}
