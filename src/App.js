@@ -9,6 +9,7 @@ import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
 import NewsSearch from "./pages/NewsSearch/NewsSearch";
 import k from "./K 2.JPG";
+import Widget from "./components/Widget/Widget";
 
 function App() {
   const { user, getUser } = useAuth();
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/News" element={<NewsSearch />} />
               </Routes>
             </div>
+            <Widget />
           </>
         ) : (
           <Auth />
