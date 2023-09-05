@@ -31,7 +31,8 @@ function Posts() {
         {
           posts ? posts.map((item,i)=>{
             return <li key={i}><div className='post'>
-              <Post user={item.user.screenName} post={item.post} isUser={false}/>
+              <Post user={item.user.screenName} time={item.post.updatedAt}
+              post={item.post} isUser={false}/>
               </div></li>
           }) : <h1>Loading....</h1>
         }

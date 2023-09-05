@@ -72,7 +72,8 @@ function UserPage(props) {
               console.log(typeof(item))
               if(item!==null){
                 return <li key={i}><div className='post'>
-                  <Post user={userName} post={item} isUser={user._id === id}/>
+                  <Post user={userName} post={item} time={item.updatedAt}
+                  isUser={user._id === id}/>
                   </div></li>
               }
               else{

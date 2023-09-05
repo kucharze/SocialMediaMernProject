@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
-function Post({user, post, isUser}) {
+function Post({user, post, isUser,time}) {
   //console.log('Post user',user)
   const [savedPost, setSavedPost] = useState(post)
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
@@ -55,6 +55,7 @@ function Post({user, post, isUser}) {
   return (
     <div className={styles.Post}>
       <Link to={`/User/${user._id}`}><h2>{user && user}</h2></Link>
+      <h4>{time}</h4>
       <p>{postDesc}</p>
       {
         isUser && <div className='editing'>
