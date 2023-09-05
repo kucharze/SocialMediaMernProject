@@ -19,14 +19,14 @@ function UserPage(props) {
     const grabUser = async() =>{//Grab the data for a user
       console.log("Bring in data for the current user page we are on")
       const userdata = await searchUser(id)
-      console.log("userdata",userdata)
+      //console.log("userdata",userdata)
       setUserName(userdata.user.screenName);
       
       if(userdata.posts && userdata.posts.length === 0){
         console.log("No user")
         //setPosts(null)
       }
-      fixPosts(userdata.posts)
+      //fixPosts(userdata.posts)
       setPosts(userdata.posts)
       //console.log("Current posts",userdata.posts)
       //console.log(posts && posts.length>0)
@@ -68,8 +68,8 @@ function UserPage(props) {
           (posts && posts.length>0) ? 
             !empty ? 
             posts.map((item,i)=>{
-              console.log("This post is " , item)
-              console.log(typeof(item))
+              //console.log("This post is " , item)
+              //console.log(typeof(item))
               if(item!==null){
                 return <li key={i}><div className='post'>
                   <Post user={userName} post={item} time={item.updatedAt}

@@ -23,12 +23,12 @@ function App() {
 
   return (
     <div className="App">
-      <img src={k} alt="" className="logopic" />
       <div className="Display">
         {user ? (
           <>
             <Navbar />
             <div className="main">
+              <img src={k} alt="" className="logopic" />
               <Routes>
                 <Route path="/" element={<Posts />} />
                 <Route path="/User/:id" element={<UserPage />} />
