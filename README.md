@@ -18,6 +18,8 @@ Used for login and signup features
 
 This page will options to edit, delete, and create a post if the page belongs to the logged in user
 
+![Alt text](image.png)
+
 ### Troublesome areas
 
 For the most part, I was able to figure stuff out. One particularly troublesome area was the delete function for posts. Deleting the post itself was not necessarily the problem, it was removing the link from the user.
