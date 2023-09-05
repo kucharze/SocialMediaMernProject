@@ -1,5 +1,7 @@
 .User button {
-  width: 250px;
+  width: 200px;
+  margin: 10px;
+  height: 50px;
 }
 .User {
   display: flex;

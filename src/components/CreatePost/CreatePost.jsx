@@ -13,7 +13,6 @@ function CreatePost({status, setStatus}) {//Form for Creating a new psot
   }
   return (
     <div className={styles.CreatePost}>
-      <h1>Post something here</h1>
       <form onSubmit={handleSubmit}>
         <input name='post' type='text' onChange={(e)=>{setPost(e.target.value)}}/>
         <input type='submit'/>

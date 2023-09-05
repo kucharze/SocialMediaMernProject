@@ -1,14 +1,21 @@
 .Post {
-  border: solid black;
-  background-color: gray;
+  border: solid rgb(67, 85, 226);
+  border-radius: 20px;
+  background-color: rgb(206, 180, 118);
   width: 800px;
   font-size: 20px;
 }
 
-button {
-  height: 60px;
-  width: 90px;
-  font-size: 15px;
+.Post h1 {
+  font-size: 35px;
+}
+
+.Post p {
+  font-size: 25px;
+}
+
+.btn {
+  font-size: 20px;
   margin: 10px;
 }
 
