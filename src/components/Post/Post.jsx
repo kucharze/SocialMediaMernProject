@@ -54,12 +54,12 @@ function Post({user, post, isUser}) {
   }
   return (
     <div className={styles.Post}>
-      <Link to={`/User/${user._id}`}><h1>{user && user.screenName}</h1></Link>
+      <Link to={`/User/${user._id}`}><h1>{user && user}</h1></Link>
       <p>{postDesc}</p>
       {
         isUser && <div className='editing'>
-          <button disabled={disabled} onClick={handleEdit}>To Edit</button>
-          <button disabled={disabled} onClick={handleDelete}>To Delete</button>
+          <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
+          <button className={styles.btn} disabled={disabled} onClick={handleDelete}>To Delete</button>
           </div>
       }
       
