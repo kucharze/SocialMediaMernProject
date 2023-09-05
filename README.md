@@ -18,7 +18,9 @@ Used for login and signup features
 
 This page will options to edit, delete, and create a post if the page belongs to the logged in user
 
-![Alt text](image.png)
+### React side diagram
+
+![Alt text](image-1.png)
 
 ### Troublesome areas
 
