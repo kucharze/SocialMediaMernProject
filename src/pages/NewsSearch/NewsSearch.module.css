@@ -20,8 +20,8 @@ button {
 }
 
 .news {
-  border: solid black;
-  background-color: lightblue;
+  border: solid blue;
+  background-color: rgb(206, 180, 118);
   color: black;
   margin: 20px;
   font-size: 15px;
