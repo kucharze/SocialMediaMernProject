@@ -8,11 +8,11 @@ function Navbar() {
     <div className='navbar'>
       <Link to={`/User/${user._id}`}>{user.screenName}'s page</Link>
       &nbsp;  &nbsp;
-      <Link to={`/`}>🏠 Home 🏠</Link>
+      <Link to={`/`}>🏠 Home</Link>
       &nbsp;  &nbsp;
-      <Link to={`/News`}>Search news</Link>
+      <Link to={`/News`}>🔍 News</Link>
       &nbsp;  &nbsp;
-      <Link to={``} onClick={()=>logout()}>Logout</Link>
+      <Link to={``} onClick={()=>logout()}>👋 Logout</Link>
     </div>
   )
 }

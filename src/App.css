@@ -28,7 +28,7 @@ input {
 }
 
 .navbar {
-  width: 8%;
+  width: 10%;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
