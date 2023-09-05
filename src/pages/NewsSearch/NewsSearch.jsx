@@ -26,6 +26,7 @@ function NewsSearch() {
         }
         {
             articles && articles.map((item,i)=>{
+              if(item.title!='[Removed]')
                 return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
                 <h2>Info</h2>
