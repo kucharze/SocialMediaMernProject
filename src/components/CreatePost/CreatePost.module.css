@@ -1,0 +1,8 @@
+.CreatePost {
+  width: 400px;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black;
+}

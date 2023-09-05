@@ -10,10 +10,6 @@
   justify-content: center;
 }
 
-.createPost {
-  border: solid black;
-}
-
 input {
   margin: 10px;
   height: 50px;
