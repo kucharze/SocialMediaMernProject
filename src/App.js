@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <img src={k} alt="" />
+      <img src={k} alt="" className="logopic" />
       <div className="Display">
         {user ? (
           <>

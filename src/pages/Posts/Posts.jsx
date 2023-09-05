@@ -1,8 +1,8 @@
 import React , {useState, useEffect} from 'react'
 import Post from '../../components/Post/Post'
 import { useAuth } from '../../contexts/app_context'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
+import styles from './Posts.module.css'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
@@ -27,7 +27,7 @@ function Posts() {
   return (
     <div className='postList'>
       <h2>See what others are posting about</h2>
-      <ul className='postDisplay'>
+      <ul className={styles.postDisplay}>
         {
           posts ? posts.map((item,i)=>{
             return <li key={i}><div className='post'>

@@ -64,7 +64,7 @@ function UserPage(props) {
         </div>
       }
      
-      <ol className='postDisplay'>
+      <ul className='postDisplay'>
         {//Are there any posts to render, if so render them
           (posts && posts.length>0) ? 
             !empty ? 
@@ -88,7 +88,7 @@ function UserPage(props) {
             <h3>This user currently has no posts to display becuase of null</h3> : 
           <h3>This user has no posts to display</h3>
         }
-      </ol>
+      </ul>
     </div>
   )
 }
