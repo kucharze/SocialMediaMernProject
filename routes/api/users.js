@@ -45,12 +45,12 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/findUser/:id", async (req, res) => {
-  console.log("Searching for a user using ", req.params.id);
+  //console.log("Searching for a user using ", req.params.id);
   let id = req.params.id;
 
   try {
     const user = await User.findById(id);
-    console.log(user);
+    //console.log(user);
 
     if (user) {
       console.log("Good user");
@@ -71,7 +71,7 @@ router.get("/findUser/:id", async (req, res) => {
 
 const findPosts = async (posts) => {
   console.log("We are looking for the posts");
-  console.log("the posts", posts);
+  //console.log("the posts", posts);
   let postList = [];
   try {
     // Posts.findById({ id: posts[0] }).then((data) => {
@@ -86,6 +86,7 @@ const findPosts = async (posts) => {
     return postList;
   } catch (error) {
     console.log("post error", error._message);
+    return null;
   }
 };
 
