@@ -50,7 +50,7 @@ export const AppContextProvider = ({ children }) => {
   const searchUser = async (id) => {
     try {
       const res = await axios.get(`${BASE_URL}/findUser/${id}`);
-      console.log("userdata return", res.data);
+      //console.log("userdata return", res.data);
       return res.data;
     } catch (error) {
       console.log("Error searching for user: ", error);
@@ -63,17 +63,21 @@ export const AppContextProvider = ({ children }) => {
 
     try {
       // user.posts.push
-      const res = await axios.post(
-        `${BASE_URL_POSTS}/newPost`,
-        { id: user._id, post },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      // const res = await axios.post(
+      //   `${BASE_URL_POSTS}/newPost`,
+      //   { id: user._id, post },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // );
       // console.log("create data response", res);
-      setUser(res.data);
+
+      // setUser(res.data);
+      setUser(
+        await postRequest({ id: user._id, post }, `${BASE_URL_POSTS}/newPost`)
+      );
     } catch (error) {
       console.log("error creating a post ", error);
     }
