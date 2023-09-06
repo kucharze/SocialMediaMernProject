@@ -9,10 +9,12 @@ function NewsSearch() {
 
     const searchNews = async () =>{
         //Search for news articles based on a search term
-        let api = `https://newsapi.org/v2/everything?q=${search}&from=2023-08-10&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
+        // let api = `https://newsapi.org/v2/everything?q=${search}&from=2023-08-10&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
+        let api = `https://newsdata.io/api/1/news?apikey=pub_2895793afb243b410546a59b35c08cc383271&q=${search}`
+
         let res = await axios.get(api)
         console.log(res.data)
-        setArticles(res.data.articles)
+        setArticles(res.data.results)
     }
   return (
     <div className={styles.NewsSearch}>
@@ -29,9 +31,9 @@ function NewsSearch() {
               if(item.title!=='[Removed]')
                 return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
+                <img src={item.image_url} alt="" className='' />
                 <h2>Info</h2>
                 <p>{item.description}</p>
-                <a href={item.url}>See link</a>
                 </div>
                 
             })
