@@ -50,6 +50,7 @@ function UserPage(props) {
     //console.log("Posts is " + posts)
     //console.log("empty is ", empty)
 
+    let check = false
   return (
     <div className={styles.User}>
       <h1>{userName}'s page</h1>
@@ -70,10 +71,20 @@ function UserPage(props) {
             posts.map((item,i)=>{
               //console.log("This post is " , item)
               //console.log(typeof(item))
+             
               if(item!==null){
+                 check = false;
+                for(let i=0; i<item.likedList.length; i++){
+                  //console.log("reference is",item.post.likedList[i])
+                  check = false;
+                  if(item.likedList[i] === user._id){
+                    console.log("This should enter checked")
+                    check=true
+                  }
+                }
                 return <li key={i}><div className='post'>
                   <Post user={userName} post={item} time={item.updatedAt}
-                  isUser={user._id === id} likes={item.likes}/>
+                  isUser={user._id === id} likes={item.likes} checked={check}/>
                   </div></li>
               }
               else{
