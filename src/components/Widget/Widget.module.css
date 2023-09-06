@@ -7,7 +7,8 @@
   width: 20%;
 }
 .news {
-  border: solid blue;
+  border: solid blue 5px;
+  border-style: double;
   background-color: rgb(206, 180, 118);
   color: black;
   margin: 20px;

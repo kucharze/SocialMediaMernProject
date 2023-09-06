@@ -9,7 +9,7 @@ function Widget() {
         //Search for news articles based on a search term
         let api = `https://newsdata.io/api/1/news?apikey=pub_2895793afb243b410546a59b35c08cc383271&q=weather`
         let res = await axios.get(api)
-        console.log(res.data)
+        //console.log(res.data)
         setArticles(res.data.results)
     }
 
