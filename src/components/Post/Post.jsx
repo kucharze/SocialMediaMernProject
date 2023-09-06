@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
-function Post({user, post, isUser,time}) {
+function Post({user, post, isUser,time, likes}) {
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
@@ -58,6 +58,7 @@ function Post({user, post, isUser,time}) {
       </div>
       
       <p>{postDesc}</p>
+      <div>Likes: {likes}</div>
       {
         isUser && <div className='editing'>
           <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
