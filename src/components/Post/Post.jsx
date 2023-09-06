@@ -58,7 +58,7 @@ function Post({user, post, isUser,time, likes}) {
       </div>
       
       <p>{postDesc}</p>
-      <div>Likes: {likes}</div>
+      <div className='likes'><input type="radio" name="likes" id="" /> Likes: {likes} </div>
       {
         isUser && <div className='editing'>
           <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
