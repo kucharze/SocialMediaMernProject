@@ -79,11 +79,25 @@ router.put("/updateLikes", async (req, res) => {
     let oldPost = await Posts.findById(req.body.postid);
     // console.log(oldPost);
     oldPost.likes += req.body.likes;
-    console.log(oldPost);
 
-    let newPost = await Posts.findByIdAndUpdate(req.body.postid, oldPost);
+    if (req.body.likes === 1) {
+      console.log("Adding to the list");
+      oldPost.likedList.push(req.body.userid);
+      console.log(oldPost);
+
+      let newPost = await Posts.findByIdAndUpdate(req.body.postid, oldPost);
+      console.log(newPost);
+    } else {
+      let newPost = await Posts.findByIdAndUpdate(req.body.postid, {
+        $pull: { likedList: { id: req.body.userid } },
+        likes: oldPost.likes - 1,
+      });
+      console.log("Removing from the list");
+      oldPost.likedList;
+      console.log(newPost);
+    }
   } catch (error) {
-    res.status(400).json("An error occured while attempting to edit");
+    res.status(400).json("An error occured while attempting to edit", error);
   }
 });
 
