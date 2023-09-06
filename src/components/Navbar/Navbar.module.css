@@ -13,3 +13,8 @@
   max-height: 950px;
   align-items: center;
 }
+
+.img {
+  height: 250px;
+  margin: 10px;
+}
