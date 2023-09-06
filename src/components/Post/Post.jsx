@@ -2,14 +2,16 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Posts.module.css'
 import axios from 'axios'
+import { useAuth } from '../../contexts/app_context'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
 function Post({user, post, isUser,time, likes}) {
+  const {updateLikes} = useAuth()
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
-  const [clicked, setClicked] = useState(false)
+  const [numLikes, setNumLikes]  =useState(likes)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
@@ -50,24 +52,21 @@ function Post({user, post, isUser,time, likes}) {
     }  
   }
 
-  const updateLikes = (e)=>{
+  const updateLikesAmout = (e)=>{
     console.log(e.target)
-    if(clicked){
-      console.log("Remove like")
-      setClicked(false)
-      e.target.checked = false
-    }
-    else{
+
       if(e.target.checked){
         console.log("Add like")
-        setClicked(true)
+        setNumLikes(numLikes+1)
+        updateLikes(1,id)
       }
-    }
+      else{
+        console.log("Remove like")
+        //e.target.checked = false
+        setNumLikes(numLikes-1)
+        updateLikes(-1,id)
+      }
     
-    // else{
-    //   console.log("Remove like")
-    //   setClicked(false)
-    // }
   }
 
   return (
@@ -79,8 +78,9 @@ function Post({user, post, isUser,time, likes}) {
       
       <p>{postDesc}</p>
       <div className={styles.likes}>
-        <input type="radio" onClick={updateLikes} name="likes" id="" /> 
-        👍 Likes: {likes} 
+        <input type="checkbox" onClick={updateLikesAmout} name="likes" id="heart" /> 
+        <label htmlFor='heart'> 👍 Likes: {numLikes} </label>
+       
       </div>
       {
         isUser && <div className='editing'>
