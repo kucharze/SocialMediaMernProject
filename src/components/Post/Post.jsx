@@ -9,10 +9,10 @@ function Post({user, post, isUser,time, likes}) {
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
+  const [clicked, setClicked] = useState(false)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
-    
     try {
       console.log("Trying to delete")
       let res = await axios.delete(`${BASE_URL_POSTS}/delete/${id}`);
@@ -47,9 +47,29 @@ function Post({user, post, isUser,time, likes}) {
       setPostDesc(pro)
     } catch (error) {
       console.log("we had an edit error ", error._message)
+    }  
+  }
+
+  const updateLikes = (e)=>{
+    console.log(e.target)
+    if(clicked){
+      console.log("Remove like")
+      setClicked(false)
+      e.target.checked = false
+    }
+    else{
+      if(e.target.checked){
+        console.log("Add like")
+        setClicked(true)
+      }
     }
     
+    // else{
+    //   console.log("Remove like")
+    //   setClicked(false)
+    // }
   }
+
   return (
     <div className={styles.Post}>
       <div className={styles.postTitle}>
@@ -58,7 +78,10 @@ function Post({user, post, isUser,time, likes}) {
       </div>
       
       <p>{postDesc}</p>
-      <div className='likes'><input type="radio" name="likes" id="" /> Likes: {likes} </div>
+      <div className={styles.likes}>
+        <input type="radio" onClick={updateLikes} name="likes" id="" /> 
+        👍 Likes: {likes} 
+      </div>
       {
         isUser && <div className='editing'>
           <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
