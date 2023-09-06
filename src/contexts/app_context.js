@@ -82,6 +82,7 @@ export const AppContextProvider = ({ children }) => {
           },
         }
       );
+      console.log(res);
     } catch (error) {
       console.log("Error updating likes", error);
     }

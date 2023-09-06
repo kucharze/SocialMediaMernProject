@@ -74,6 +74,17 @@ router.put("/edit", async (req, res) => {
 router.put("/updateLikes", async (req, res) => {
   console.log("Found update likes post");
   console.log(req.body);
+
+  try {
+    let oldPost = await Posts.findById(req.body.postid);
+    // console.log(oldPost);
+    oldPost.likes += req.body.likes;
+    console.log(oldPost);
+
+    let newPost = await Posts.findByIdAndUpdate(req.body.postid, oldPost);
+  } catch (error) {
+    res.status(400).json("An error occured while attempting to edit");
+  }
 });
 
 router.delete("/delete/:id", async (req, res) => {
