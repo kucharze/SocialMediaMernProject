@@ -26,6 +26,16 @@
   margin: 10px;
 }
 
+input {
+  width: 30px;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   color: rgb(12, 54, 223);
 }
