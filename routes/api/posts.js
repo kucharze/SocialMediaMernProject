@@ -71,6 +71,11 @@ router.put("/edit", async (req, res) => {
   }
 });
 
+router.put("/updateLikes", async (req, res) => {
+  console.log("Found update likes post");
+  console.log(req.body);
+});
+
 router.delete("/delete/:id", async (req, res) => {
   console.log("Found the delete route");
 

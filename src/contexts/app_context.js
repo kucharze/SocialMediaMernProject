@@ -62,24 +62,28 @@ export const AppContextProvider = ({ children }) => {
     //console.log("Creating a new post");
 
     try {
-      // user.posts.push
-      // const res = await axios.post(
-      //   `${BASE_URL_POSTS}/newPost`,
-      //   { id: user._id, post },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // );
-      // console.log("create data response", res);
-
-      // setUser(res.data);
       setUser(
         await postRequest({ id: user._id, post }, `${BASE_URL_POSTS}/newPost`)
       );
     } catch (error) {
       console.log("error creating a post ", error);
+    }
+  };
+
+  const updateLikes = async (point, id) => {
+    console.log(point);
+    try {
+      const res = await axios.put(
+        `${BASE_URL_POSTS}/updateLikes`,
+        { likes: point, postid: id, userid: user._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      console.log("Error updating likes", error);
     }
   };
 
@@ -123,6 +127,7 @@ export const AppContextProvider = ({ children }) => {
         postLogin,
         searchUser,
         createPost,
+        updateLikes,
       }}
     >
       {children}
