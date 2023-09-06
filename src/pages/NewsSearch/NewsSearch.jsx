@@ -9,7 +9,7 @@ function NewsSearch() {
 
     const searchNews = async () =>{
         //Search for news articles based on a search term
-        let api = `https://newsapi.org/v2/everything?q=${search}&from=2023-08-09&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
+        let api = `https://newsapi.org/v2/everything?q=${search}&from=2023-08-10&sortBy=publishedAt&apiKey=0539d4f171184511b8d1753b9a36dd72`
         let res = await axios.get(api)
         console.log(res.data)
         setArticles(res.data.articles)
