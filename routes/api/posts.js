@@ -15,6 +15,7 @@ router.post("/newPost", async (req, res) => {
     const post = await Posts.create({
       user: user,
       post: req.body.post,
+      likes: 0,
     });
 
     user.posts.push(post);
