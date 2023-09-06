@@ -34,6 +34,7 @@ function NewsSearch() {
                 <img src={item.image_url} alt="" className='' />
                 <h2>Info</h2>
                 <p>{item.description}</p>
+                <a href={item.link}>See link</a>
                 </div>
                 
             })

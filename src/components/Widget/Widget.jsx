@@ -26,7 +26,7 @@ function Widget() {
                 return <div className={styles.news} key={i}>
                 <h1>{item.title}</h1>
                 <h2>{item.description}</h2>
-                {/* <a href={item.url}>See link</a> */}
+                <a href={item.link}>See link</a>
                 </div>
                 
             })
