@@ -6,12 +6,13 @@ import { useAuth } from '../../contexts/app_context'
 
 const BASE_URL_POSTS = "http://localhost:3001/posts";
 
-function Post({user, post, isUser,time, likes}) {
+function Post({user, post, isUser,time, likes, checked}) {
   const {updateLikes} = useAuth()
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
   const [numLikes, setNumLikes]  =useState(likes)
+  const [clicked,setClicked] = useState(checked)
   //console.log("post is ", post)
 
   const handleDelete = async () =>{
@@ -59,12 +60,15 @@ function Post({user, post, isUser,time, likes}) {
         console.log("Add like")
         setNumLikes(numLikes+1)
         updateLikes(1,id)
+        setClicked(true)
       }
       else{
-        console.log("Remove like")
-        //e.target.checked = false
-        setNumLikes(numLikes-1)
-        updateLikes(-1,id)
+        // console.log("Remove like")
+        // //e.target.checked = false
+        // setNumLikes(numLikes-1)
+        // updateLikes(-1,id)
+        // setClicked(false)
+        console.log("No logic")
       }
     
   }
@@ -78,7 +82,7 @@ function Post({user, post, isUser,time, likes}) {
       
       <p>{postDesc}</p>
       <div className={styles.likes}>
-        <input type="checkbox" onClick={updateLikesAmout} name="likes" id="heart" /> 
+        <input type="checkbox" checked={clicked} onChange={updateLikesAmout} name="likes" id="heart" /> 
         <label htmlFor='heart'> 👍 Likes: {numLikes} </label>
        
       </div>

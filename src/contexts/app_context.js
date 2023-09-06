@@ -75,7 +75,7 @@ export const AppContextProvider = ({ children }) => {
     try {
       const res = await axios.put(
         `${BASE_URL_POSTS}/updateLikes`,
-        { likes: point, postid: id, userid: user._id },
+        { likes: point, postid: id, user: user },
         {
           headers: {
             "Content-Type": "application/json",

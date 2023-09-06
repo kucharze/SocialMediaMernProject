@@ -76,7 +76,6 @@ function UserPage(props) {
                  check = false;
                 for(let i=0; i<item.likedList.length; i++){
                   //console.log("reference is",item.post.likedList[i])
-                  check = false;
                   if(item.likedList[i] === user._id){
                     console.log("This should enter checked")
                     check=true
