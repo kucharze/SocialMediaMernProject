@@ -3,16 +3,16 @@
   border-radius: 20px;
   background-color: rgb(206, 180, 118);
   width: 800px;
-  font-size: 20px;
+  font-size: 18px;
   flex: 1;
 }
 
 .Post h1 {
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .Post p {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .postTitle {
@@ -23,7 +23,7 @@
 
 .btn {
   font-size: 20px;
-  margin: 10px;
+  margin: 5px;
 }
 
 input[type="checkbox"] {
@@ -40,7 +40,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 5px;
 }
 
 a {
