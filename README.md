@@ -46,3 +46,4 @@ A third troublesome spot was attempting to undo liking a post. Adding a like wor
 ## If I had more time
 
 If there was more time, I would try to fix the issue with unlike posts to start off with. Secondly, I would look for the ability to add other things to posts, like actual pictures.
+I would also like to add the ability to give comments to different posts
