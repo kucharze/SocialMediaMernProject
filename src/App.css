@@ -18,10 +18,22 @@ input {
 
 .logopic {
   /* height: 300px; */
-  width: 400px;
+  /* width: 400px; */
 }
 
 .main {
   width: 80%;
   background-color: rgb(158, 130, 78);
+}
+
+@media (max-width: 1400px) {
+  .logopic {
+    width: 70%;
+  }
+}
+
+@media (max-width: 850px) {
+  .logopic {
+    width: 60%;
+  }
 }

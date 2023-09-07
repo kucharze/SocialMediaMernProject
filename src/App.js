@@ -7,7 +7,7 @@ import UserPage from "./pages/UserPage/UserPage";
 import { useAuth } from "./contexts/app_context";
 import Navbar from "./components/Navbar/Navbar";
 import NewsSearch from "./pages/NewsSearch/NewsSearch";
-import k from "./K 2.JPG";
+import k from "./K1.jpg";
 import Widget from "./components/Widget/Widget";
 
 function App() {
