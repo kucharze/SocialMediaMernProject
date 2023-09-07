@@ -35,16 +35,16 @@ function Posts() {
             //console.log("This post is",item)
             check = false;
             for(let i=0; i<item.post.likedList.length; i++){
-              console.log("reference is",item.post.likedList[i])
+              //console.log("reference is",item.post.likedList[i])
               
               if(item.post.likedList[i] === user._id){
-                console.log("This should enter checked")
-                console.log(item.post.likedList[i],"Is this null",item.post.likedList[i]===null)
+                //console.log("This should enter checked")
+                //console.log(item.post.likedList[i],"Is this null",item.post.likedList[i]===null)
                 check=true
               }
             }
             return <li key={i}><div className='post'>
-              <Post user={item.user.screenName} time={item.post.updatedAt}
+              <Post user={item.user} time={item.post.updatedAt}
               post={item.post} isUser={false}
               likes={item.post.likes} checked={check}/>
               </div></li>

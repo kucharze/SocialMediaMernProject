@@ -32,9 +32,9 @@ function Post({user, post, isUser,time, likes, checked}) {
   }
 
   const handleEdit = async () =>{
-    console.log("Trying to edit")
+    //console.log("Trying to edit")
     let pro = prompt("Enter change to prompt")
-    console.log(pro)
+    //console.log(pro)
 
     let newPost = {...post, post: pro}
     console.log("Newpost is " , newPost)
@@ -74,10 +74,11 @@ function Post({user, post, isUser,time, likes, checked}) {
     
   }
 
+
   return (
     <div className={styles.Post}>
       <div className={styles.postTitle}>
-        <Link to={`/User/${user._id}`}><h2>{user && user}</h2></Link>
+        <Link to={`/User/${user._id}`}><h2>{user && user.screenName}</h2></Link>
         <h4>{time}</h4>
       </div>
       

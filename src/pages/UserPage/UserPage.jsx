@@ -10,6 +10,7 @@ function UserPage(props) {
     const id = useParams().id
     const {user, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
+    const [userProf,setUserprof] = useState(null)
     const [create,setCreate] = useState(false)
     const [posts, setPosts] = useState(null)
     const [status,setStatus] = useState(false)
@@ -19,8 +20,9 @@ function UserPage(props) {
     const grabUser = async() =>{//Grab the data for a user
       console.log("Bring in data for the current user page we are on")
       const userdata = await searchUser(id)
-      //console.log("userdata",userdata)
+      console.log("userdata",userdata)
       setUserName(userdata.user.screenName);
+      setUserprof(userdata.user)
       
       if(userdata.posts && userdata.posts.length === 0){
         console.log("No user")
@@ -74,12 +76,12 @@ function UserPage(props) {
                 for(let i=0; i<item.likedList.length; i++){
                   //console.log("reference is",item.post.likedList[i])
                   if(item.likedList[i] === user._id){
-                    console.log("This should enter checked")
+                    //console.log("This should enter checked")
                     check=true
                   }
                 }
                 return <li key={i}><div className='post'>
-                  <Post user={userName} post={item} time={item.updatedAt}
+                  <Post user={userProf} post={item} time={item.updatedAt}
                   isUser={user._id === id} likes={item.likes} checked={check}/>
                   </div></li>
               }
