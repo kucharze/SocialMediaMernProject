@@ -32,7 +32,7 @@ https://k-social-media.onrender.com/News
 
 ![Alt text](image-3.png)
 
-### Troublesome areas
+## Troublesome areas
 
 For the most part, I was able to figure stuff out. One particularly troublesome area was the delete function for posts. Deleting the post itself was not necessarily the problem, it was removing the link from the user.
 
