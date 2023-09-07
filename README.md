@@ -2,6 +2,8 @@
 
 Once upon a time, in the digital realm, a new platform came to life. A social network called K, to encourage open dialogue, creativity, and connection, one K at a time.
 
+![Alt text](image-1.png)
+
 ### This app mainly focuses on use the mern stack to create a Social media app
 
 ### This app will let different users sign in and create posts, each post will be viewable by other users
