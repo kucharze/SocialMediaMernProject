@@ -118,6 +118,8 @@ router.delete("/delete/:id", async (req, res) => {
 
     console.log(user.posts);
 
+    //Pulled from
+    //https://www.tutorialspoint.com/how-to-remove-element-in-a-mongodb-array#:~:text=To%20remove%20an%20element%2C%20update,that%20match%20a%20specified%20condition.
     let usernew = await User.findByIdAndUpdate(user._id, {
       $pull: { posts: { id: post._id } },
     });
