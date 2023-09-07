@@ -20,15 +20,15 @@ Used for login and signup features
 
 This page will options to edit, delete, and create a post if the page belongs to the logged in user
 
-### Live site
+## Live site
 
 https://k-social-media.onrender.com/News
 
-### React side diagram
+## React side diagram
 
 ![Alt text](image.png)
 
-### Client side diagram
+## Client side diagram
 
 ![Alt text](image-3.png)
 
