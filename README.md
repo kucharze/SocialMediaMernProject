@@ -28,7 +28,7 @@ https://k-social-media.onrender.com/News
 
 ## React side diagram
 
-![Alt text](image.png)
+![Alt text](image-2.png)
 
 ## Client side diagram
 
