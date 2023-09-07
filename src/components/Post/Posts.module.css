@@ -46,3 +46,14 @@ input[type="checkbox"] {
 a {
   color: rgb(12, 54, 223);
 }
+
+@media (max-width: 1350px) {
+  .Post {
+    border: solid rgb(67, 85, 226);
+    border-radius: 20px;
+    background-color: rgb(206, 180, 118);
+    width: 400px;
+    font-size: 18px;
+    flex: 1;
+  }
+}
