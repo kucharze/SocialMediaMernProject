@@ -42,3 +42,7 @@ Of course, this only made it null, so I had to whip up some logic that checks to
 Another troublesome part was what to do after creating a new post. After some work, I managed to get it to work by allowing default form operations
 
 A third troublesome spot was attempting to undo liking a post. Adding a like worked just fine. I wanted to increase the like amount and add the user to a list of people who liked the post. The problem was taking the user out when removing. I thought that I would try something similar to what I did with the delete route, but I could not get it to work. In the end, I settled for only allowing liking a post due to time constraints.
+
+## If I had more time
+
+If there was more time, I would try to fix the issue with unlike posts to start off with. Secondly, I would look for the ability to add other things to posts, like actual pictures.
