@@ -33,7 +33,6 @@ function UserPage(props) {
       if(empty===true){
         empty=false
       }
-      //console.log("empty is ", empty)
     }
 
     let fixPosts = (posts) =>{
@@ -47,8 +46,6 @@ function UserPage(props) {
         grabUser()
 
     },[status])
-    //console.log("Posts is " + posts)
-    //console.log("empty is ", empty)
 
     let check = false
   return (
