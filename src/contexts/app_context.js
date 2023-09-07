@@ -3,8 +3,10 @@ import axios from "axios";
 
 export const AppContext = createContext();
 
-const BASE_URL = "http://localhost:3001/users";
-const BASE_URL_POSTS = "http://localhost:3001/posts";
+// const BASE_URL = "http://localhost:3001/users";
+const BASE_URL = "/users";
+// const BASE_URL_POSTS = "http://localhost:3001/posts";
+const BASE_URL_POSTS = "/posts";
 
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -59,8 +61,6 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const createPost = async (post) => {
-    //console.log("Creating a new post");
-
     try {
       setUser(
         await postRequest({ id: user._id, post }, `${BASE_URL_POSTS}/newPost`)

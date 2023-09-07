@@ -4,7 +4,8 @@ import styles from './Posts.module.css'
 import axios from 'axios'
 import { useAuth } from '../../contexts/app_context'
 
-const BASE_URL_POSTS = "http://localhost:3001/posts";
+// const BASE_URL_POSTS = "http://localhost:3001/posts";
+const BASE_URL_POSTS = "/posts";
 
 function Post({user, post, isUser,time, likes, checked}) {
   const {updateLikes} = useAuth()

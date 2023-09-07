@@ -4,7 +4,8 @@ import { useAuth } from '../../contexts/app_context'
 import axios from 'axios'
 import styles from './Posts.module.css'
 
-const BASE_URL_POSTS = "http://localhost:3001/posts";
+// const BASE_URL_POSTS = "http://localhost:3001/posts";
+const BASE_URL_POSTS = "/posts";
 
 function Posts() {
   const [posts, setPosts] = useState(null)
