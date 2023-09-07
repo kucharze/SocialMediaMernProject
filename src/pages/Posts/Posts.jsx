@@ -28,11 +28,11 @@ function Posts() {
   let check = false
   return (
     <div className={styles.postList}>
-      <h1>See what others are posting about</h1>
+      <h1>The zone</h1>
       <ul className={styles.postDisplay}>
         {
           posts ? posts.map((item,i)=>{
-            console.log("This post is",item)
+            //console.log("This post is",item)
             check = false;
             for(let i=0; i<item.post.likedList.length; i++){
               console.log("reference is",item.post.likedList[i])
