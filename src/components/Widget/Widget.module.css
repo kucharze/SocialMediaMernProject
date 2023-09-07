@@ -22,10 +22,13 @@
 }
 
 @media (max-width: 1450px) {
+  .Weather {
+    width: 10%;
+  }
   .news {
     margin: 5px;
-    font-size: 8px;
+    font-size: 6px;
     padding: 5px;
-    width: 70%;
+    width: 80%;
   }
 }

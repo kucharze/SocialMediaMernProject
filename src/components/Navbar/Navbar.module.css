@@ -18,3 +18,20 @@
   height: 250px;
   margin: 10px;
 }
+
+@media (max-width: 1450px) {
+  .navbar a {
+    font-size: 10px;
+    margin: 10px;
+  }
+  .navbar {
+    width: 10%;
+    padding-left: 5px;
+    max-height: 950px;
+  }
+
+  .img {
+    height: 100px;
+    margin: 10px;
+  }
+}
