@@ -62,7 +62,7 @@ router.get("/findUser/:id", async (req, res) => {
       res.status(400).json("No user found");
     }
   } catch (error) {
-    console.log(error._message);
+    console.log(error);
     res
       .status(400)
       .json({ msg: "Error searching for user", reason: error._message });
