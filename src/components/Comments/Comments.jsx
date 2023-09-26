@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState } from 'react'
+import styles from './Comments.module.css'
 
 function Comments() {
+
   return (
     <div>
-      <h1>The comments component</h1>
-      <button>Show Comments</button>
+      <h4>Comments functionality currently in development</h4>
+      <button className={styles.comments}>Show Comments</button>
     </div>
   )
 }
