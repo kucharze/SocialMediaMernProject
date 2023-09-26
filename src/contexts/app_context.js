@@ -51,6 +51,7 @@ export const AppContextProvider = ({ children }) => {
 
   const searchUser = async (id) => {
     try {
+      console.log("id is ", id);
       const res = await axios.get(`${BASE_URL}/findUser/${id}`);
       //console.log("userdata return", res.data);
       return res.data;
@@ -113,6 +114,17 @@ export const AppContextProvider = ({ children }) => {
     // setPosts(item.posts);
   }
 
+  const loadPosts = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL_POSTS}`);
+      console.log("res is ", res.data);
+      console.log("Post data", res.data);
+      return res.data;
+    } catch (error) {
+      console.log("Error loading posts list ", error);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -129,6 +141,7 @@ export const AppContextProvider = ({ children }) => {
         searchUser,
         createPost,
         updateLikes,
+        loadPosts,
       }}
     >
       {children}

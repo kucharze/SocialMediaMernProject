@@ -4,25 +4,32 @@ import { useAuth } from '../../contexts/app_context'
 import axios from 'axios'
 import styles from './Posts.module.css'
 
-// const BASE_URL_POSTS = "http://localhost:3001/posts";
-const BASE_URL_POSTS = "/posts";
+
 
 function Posts() {
   const [posts, setPosts] = useState(null)
-  const {user} = useAuth()
+  const {user,loadPosts} = useAuth()
 
-  const loadPosts = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL_POSTS}`);
-      console.log("res is ",res.data);
-      setPosts(res.data)
-    } catch (error) {
-      console.log("Error loading posts list ", error);
-    }
-  };
+  // const loadPosts = async () => {
+  //   try {
+  //     const res = await axios.get(`${BASE_URL_POSTS}`);
+  //     console.log("res is ",res.data);
+  //     setPosts(res.data)
+  //   } catch (error) {
+  //     console.log("Error loading posts list ", error);
+  //   }
+  // };
+
+  const CreatePosts = async () =>{
+    let res = await loadPosts()
+    
+    console.log("res is",res)
+    setPosts(res)
+    return res
+  }
 
   useEffect(()=>{
-    loadPosts()
+    CreatePosts()
   },[])
   
   let check = false
