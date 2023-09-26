@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import styles from './Posts.module.css'
 import axios from 'axios'
 import { useAuth } from '../../contexts/app_context'
+import Comments from '../Comments/Comments'
 
-// const BASE_URL_POSTS = "http://localhost:3001/posts";
+//const BASE_URL_POSTS = "http://localhost:3001/posts";
 const BASE_URL_POSTS = "/posts";
 
 function Post({user, post, isUser,time, likes, checked}) {
@@ -94,6 +95,8 @@ function Post({user, post, isUser,time, likes, checked}) {
           <button className={styles.btn} disabled={disabled} onClick={handleDelete}>To Delete</button>
           </div>
       }
+
+      <Comments/>
       
     </div>
   )
