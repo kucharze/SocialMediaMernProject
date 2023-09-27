@@ -21,7 +21,7 @@
   font-size: 18px;
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1550px) {
   .Weather {
     width: 18%;
   }
