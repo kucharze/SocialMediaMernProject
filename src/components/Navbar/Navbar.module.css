@@ -21,11 +21,11 @@
 
 @media (max-width: 1300px) {
   .navbar a {
-    font-size: 16px;
+    font-size: 14px;
     margin: 10px;
   }
   .navbar {
-    width: 10%;
+    width: 25%;
     padding-left: 5px;
     max-height: 950px;
   }
