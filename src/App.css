@@ -29,12 +29,14 @@ input {
 @media (max-width: 1400px) {
   .logopic {
     width: 70%;
+    height: 300px;
   }
 }
 
 @media (max-width: 1000px) {
   .logopic {
-    width: 60%;
+    width: 80%;
+    height: 150px;
   }
   .main {
     width: 60%;
