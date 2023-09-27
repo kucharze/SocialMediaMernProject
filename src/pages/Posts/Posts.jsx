@@ -1,24 +1,11 @@
 import React , {useState, useEffect} from 'react'
 import Post from '../../components/Post/Post'
 import { useAuth } from '../../contexts/app_context'
-import axios from 'axios'
 import styles from './Posts.module.css'
-
-
 
 function Posts() {
   const [posts, setPosts] = useState(null)
   const {user,loadPosts} = useAuth()
-
-  // const loadPosts = async () => {
-  //   try {
-  //     const res = await axios.get(`${BASE_URL_POSTS}`);
-  //     console.log("res is ",res.data);
-  //     setPosts(res.data)
-  //   } catch (error) {
-  //     console.log("Error loading posts list ", error);
-  //   }
-  // };
 
   const CreatePosts = async () =>{
     let res = await loadPosts()
