@@ -32,8 +32,6 @@ input[type="checkbox"] {
   background-color: white;
   position: relative;
   outline: none;
-  /* transform: rotate(45deg);
-  -webkit-appearance: none; */
 }
 
 .likes {
@@ -49,7 +47,7 @@ a {
 
 @media (max-width: 1350px) {
   .Post {
-    width: 600px;
+    width: 500px;
     font-size: 18px;
     flex: 1;
   }
@@ -62,10 +60,10 @@ a {
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .Post {
     width: 300px;
-    font-size: 12px;
+    font-size: 10px;
     flex: 1;
   }
 
@@ -73,7 +71,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* height: 10px; */
     margin: 2px;
+  }
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    outline: none;
   }
 
   .Post h1 {
