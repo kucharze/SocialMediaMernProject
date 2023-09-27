@@ -32,8 +32,12 @@ input {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   .logopic {
     width: 60%;
+  }
+  .main {
+    width: 60%;
+    background-color: rgb(158, 130, 78);
   }
 }

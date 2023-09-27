@@ -23,8 +23,7 @@
 
 @media (max-width: 1550px) {
   .Weather {
-    width: 30%;
-    font-size: 10px;
+    width: 25%;
   }
   .news {
     margin: 5px;
@@ -35,11 +34,12 @@
 
 @media (max-width: 1000px) {
   .Weather {
-    width: 30%;
+    width: 25%;
+    font-size: 8px;
   }
   .news {
     margin: 5px;
     font-size: 2px;
-    width: 50px;
+    width: 70%;
   }
 }

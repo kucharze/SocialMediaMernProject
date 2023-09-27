@@ -62,7 +62,7 @@ a {
 
 @media (max-width: 1000px) {
   .Post {
-    width: 220px;
+    width: 200px;
     font-size: 8px;
     flex: 1;
   }
