@@ -4,7 +4,7 @@
   height: 50px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
   .comments {
     margin: 10px;
     width: 150px;

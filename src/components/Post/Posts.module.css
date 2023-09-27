@@ -47,9 +47,9 @@ a {
   color: rgb(12, 54, 223);
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1350px) {
   .Post {
-    width: 500px;
+    width: 650px;
     font-size: 18px;
     flex: 1;
   }
@@ -62,7 +62,7 @@ a {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
   .Post {
     width: 300px;
     font-size: 12px;
