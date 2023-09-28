@@ -36,7 +36,7 @@ input {
 @media (max-width: 1000px) {
   .logopic {
     width: 95%;
-    height: 150px;
+    height: 100px;
   }
   .main {
     width: 60%;
