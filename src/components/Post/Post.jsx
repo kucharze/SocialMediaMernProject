@@ -9,27 +9,18 @@ import Comments from '../Comments/Comments'
 const BASE_URL_POSTS = "/posts";
 
 function Post({user, post, isUser,time, likes, checked}) {
-  const {updateLikes} = useAuth()
+  const {updateLikes, handleDelete} = useAuth()
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
   const [numLikes, setNumLikes]  =useState(likes)
   const [clicked,setClicked] = useState(checked)
-  //console.log("post is ", post)
 
-  const handleDelete = async () =>{
-    try {
-      console.log("Trying to delete")
-      let res = await axios.delete(`${BASE_URL_POSTS}/delete/${id}`);
-      console.log("Delete res is ",res.data)
-      if(res.status === 200){
-        setPostDesc("This post has been deleted")
-        setDisabled(true)
-      }
-    } catch (error) {
-      console.log("Error trying to delete a post")
-    }
-    
+  const deletePost = async () =>{
+    const returns = await handleDelete(id);
+    console.log("Returns:",returns)
+    setPostDesc(returns[0])
+    setDisabled(returns[1])
   }
 
   const handleEdit = async () =>{
@@ -65,16 +56,10 @@ function Post({user, post, isUser,time, likes, checked}) {
         setClicked(true)
       }
       else{
-        // console.log("Remove like")
-        // //e.target.checked = false
-        // setNumLikes(numLikes-1)
-        // updateLikes(-1,id)
-        // setClicked(false)
         console.log("No logic")
       }
     
   }
-
 
   return (
     <div className={styles.Post}>
@@ -92,12 +77,10 @@ function Post({user, post, isUser,time, likes, checked}) {
       {
         isUser && <div className='editing'>
           <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
-          <button className={styles.btn} disabled={disabled} onClick={handleDelete}>To Delete</button>
+          <button className={styles.btn} disabled={disabled} onClick={() => deletePost()}>To Delete</button>
           </div>
       }
-
       <Comments/>
-      
     </div>
   )
 }
