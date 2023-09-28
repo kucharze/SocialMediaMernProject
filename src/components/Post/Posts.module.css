@@ -62,9 +62,8 @@ a {
 
 @media (max-width: 1000px) {
   .Post {
-    width: 200px;
-    font-size: 8px;
-    flex: 1;
+    width: 300px;
+    font-size: 10px;
   }
 
   .likes {
