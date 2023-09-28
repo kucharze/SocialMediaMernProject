@@ -5,11 +5,8 @@ import axios from 'axios'
 import { useAuth } from '../../contexts/app_context'
 import Comments from '../Comments/Comments'
 
-//const BASE_URL_POSTS = "http://localhost:3001/posts";
-const BASE_URL_POSTS = "/posts";
-
 function Post({user, post, isUser,time, likes, checked}) {
-  const {updateLikes, handleDelete} = useAuth()
+  const {updateLikes, handleDelete, handleEdit} = useAuth()
   const [postDesc, setPostDesc] = useState(post ? post.post : null)
   const [id,setId] = useState(post ? post._id : null)
   const [disabled, setDisabled] = useState(false)
@@ -23,7 +20,7 @@ function Post({user, post, isUser,time, likes, checked}) {
     setDisabled(returns[1])
   }
 
-  const handleEdit = async () =>{
+  const editPost = async () =>{
     //console.log("Trying to edit")
     let pro = prompt("Enter change to prompt")
     //console.log(pro)
@@ -31,19 +28,12 @@ function Post({user, post, isUser,time, likes, checked}) {
     let newPost = {...post, post: pro}
     console.log("Newpost is " , newPost)
 
-    try {
-      const ax = await axios.put(`${BASE_URL_POSTS}/edit`,{post: newPost, id},{
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    let result = await handleEdit(newPost, id)
 
-      console.log(ax);
-
+    if(result){
       setPostDesc(pro)
-    } catch (error) {
-      console.log("we had an edit error ", error._message)
-    }  
+    }
+
   }
 
   const updateLikesAmout = (e)=>{
@@ -76,11 +66,11 @@ function Post({user, post, isUser,time, likes, checked}) {
       </div>
       {
         isUser && <div className='editing'>
-          <button className={styles.btn} disabled={disabled} onClick={handleEdit}>To Edit</button>
+          <button className={styles.btn} disabled={disabled} onClick={editPost}>To Edit</button>
           <button className={styles.btn} disabled={disabled} onClick={() => deletePost()}>To Delete</button>
           </div>
       }
-      <Comments/>
+      <Comments disabled = {disabled}/>
     </div>
   )
 }

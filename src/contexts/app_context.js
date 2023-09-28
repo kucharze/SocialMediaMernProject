@@ -125,6 +125,43 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      console.log("Trying to delete");
+      let res = await axios.delete(`${BASE_URL_POSTS}/delete/${id}`);
+      console.log("Delete res is ", res.data);
+      if (res.status === 200) {
+        // setPostDesc("This post has been deleted");
+        // setDisabled(true);
+        return ["This post has been deleted", true];
+      }
+    } catch (error) {
+      console.log("Error trying to delete a post");
+    }
+  };
+
+  const handleEdit = async (newPost, id) => {
+    try {
+      const ax = await axios.put(
+        `${BASE_URL_POSTS}/edit`,
+        { post: newPost, id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(ax);
+
+      // setPostDesc(pro);
+      return true;
+    } catch (error) {
+      console.log("we had an edit error ", error._message);
+      return false;
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -142,6 +179,8 @@ export const AppContextProvider = ({ children }) => {
         createPost,
         updateLikes,
         loadPosts,
+        handleEdit,
+        handleDelete,
       }}
     >
       {children}
