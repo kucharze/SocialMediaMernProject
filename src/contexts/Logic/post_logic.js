@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const usePosts = () => {
-  const BASE_URL_POSTS = "http://localhost:3001/posts";
-  // const BASE_URL_POSTS = "/posts";
+  //const BASE_URL_POSTS = "http://localhost:3001/posts";
+  const BASE_URL_POSTS = "/posts";
 
   // const createPost = async (post) => {
   //   try {
