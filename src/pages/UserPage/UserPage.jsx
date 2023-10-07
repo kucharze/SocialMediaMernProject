@@ -8,6 +8,7 @@ import styles from './UserPage.module.css'
 function UserPage(props) {
   //Page to display a user
     const id = useParams().id
+    const [userId, setUserID] = useState(id)
     const {user, searchUser} = useAuth()
     const [userName,setUserName] = useState('user')
     const [userProf,setUserprof] = useState(null)
@@ -19,7 +20,7 @@ function UserPage(props) {
 
     const grabUser = async() =>{//Grab the data for a user
       console.log("Bring in data for the current user page we are on")
-      const userdata = await searchUser(id)
+      const userdata = await searchUser(userId)
       console.log("userdata",userdata)
       setUserName(userdata.user.screenName);
       setUserprof(userdata.user)
@@ -47,14 +48,14 @@ function UserPage(props) {
         console.log("Grabbing from server")
         grabUser()
 
-    },[status])
+    },[status, userId])
 
     let check = false
   return (
     <div className={styles.User}>
       <h1>{userName}'s page</h1>
       {
-        (user._id === id) && 
+        (user._id === userId) && 
         <div>
         <button onClick={()=>{setCreate(!create)}}>Create a new post</button>
         {//Should we render logic for creating a post
@@ -82,7 +83,7 @@ function UserPage(props) {
                 }
                 return <li key={i}><div className='post'>
                   <Post user={userProf} post={item} time={item.updatedAt}
-                  isUser={user._id === id} likes={item.likes} checked={check}/>
+                  isUser={user._id === userId} likes={item.likes} checked={check}/>
                   </div></li>
               }
               else{
