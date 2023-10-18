@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import CreatePost from '../../components/CreatePost/CreatePost'
 import { useAuth } from '../../contexts/app_context'
 import Post from '../../components/Post/Post'
@@ -17,6 +17,7 @@ function UserPage(props) {
     const [status,setStatus] = useState(false)
     const [empty, setEmpty] = useState(false)
     let count = 0;
+    let {pathname} = useLocation()
 
     const grabUser = async() =>{//Grab the data for a user
       console.log("Bring in data for the current user page we are on")
@@ -46,13 +47,19 @@ function UserPage(props) {
 
     useEffect(()=>{
         console.log("Grabbing from server")
-        grabUser()
+        setUserID(id)
 
-    },[status, userId])
+    },[status, id])
+
+    useEffect(()=>{
+      grabUser()
+    },[userId])
 
     let check = false
+    console.log("Printing a user")
+    console.log("Pathname is",pathname)
   return (
-    <div className={styles.User}>
+    <div key={pathname} className={styles.User}>
       <h1>{userName}'s page</h1>
       {
         (user._id === userId) && 
