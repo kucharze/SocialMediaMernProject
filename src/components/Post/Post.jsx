@@ -70,7 +70,7 @@ function Post({user, post, isUser,time, likes, checked}) {
           <button className={styles.btn} disabled={disabled} onClick={() => deletePost()}>To Delete</button>
           </div>
       }
-      <Comments disabled = {disabled}/>
+      <Comments disabled = {disabled} comments = {post.commentList}/>
     </div>
   )
 }

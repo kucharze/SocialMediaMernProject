@@ -1,8 +1,9 @@
 import React, {useState } from 'react'
 import styles from './Comments.module.css'
 
-function Comments({disabled}) {
+function Comments({disabled,commentList}) {
 
+  console.log(commentList)
   return (
     <div>
       <h4>Comments functionality currently in development</h4>
